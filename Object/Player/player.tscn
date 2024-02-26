@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyjc5rxtgifn0"]
+
+[ext_resource type="Script" path="res://Script/Core/Player/player.gd" id="1_qhecs"]
+[ext_resource type="Script" path="res://Script/Core/Player/player_state.gd" id="2_ilmvi"]
+[ext_resource type="Script" path="res://Script/Core/Player/player_move.gd" id="3_f58ou"]
+[ext_resource type="Script" path="res://Script/Core/Player/player_shot.gd" id="3_w8v28"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lyakn"]
+
+[node name="player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_qhecs")
+
+[node name="state" type="Node" parent="."]
+script = ExtResource("2_ilmvi")
+
+[node name="shot" type="Node" parent="state" node_paths=PackedStringArray("ray_shot")]
+script = ExtResource("3_w8v28")
+projectiles = "res://Object/Bullet/knife.tscn"
+ray_shot = NodePath("../../Rays/shot_check")
+
+[node name="move" type="Node" parent="state"]
+script = ExtResource("3_f58ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_lyakn")
+
+[node name="Rays" type="Node2D" parent="."]
+
+[node name="shot_check" type="RayCast2D" parent="Rays"]
+target_position = Vector2(0, -480)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]

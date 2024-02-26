@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxll7fs8d814j"]
+
+[ext_resource type="Script" path="res://Script/Enemy/basic_enemy.gd" id="1_mc63k"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="2_3htdw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ot0ud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01rwt"]
+size = Vector2(26, 26)
+
+[node name="sample_enemy" type="Node2D"]
+script = ExtResource("1_mc63k")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0.294118, 1, 1)
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_ot0ud")
+
+[node name="hit_box" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_3htdw")
+
+[node name="Collision" type="CollisionShape2D" parent="hit_box"]
+shape = SubResource("RectangleShape2D_01rwt")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ckts2h22c3b"]
+
+[ext_resource type="Script" path="res://Script/Projectile/basic_bullet.gd" id="1_undab"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kn5wr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnbmt"]
+
+[node name="knife" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_undab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("CanvasTexture_kn5wr")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fnbmt")
