@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr0ab5idyffau"]
+
+[ext_resource type="Script" path="res://Script/Items/slow_down_item.gd" id="1_ggdst"]
+[ext_resource type="Texture2D" uid="uid://bxwodfdtf7frs" path="res://Art/Item/ice_sickle.png" id="2_1hxbs"]
+
+[node name="ice_sickle" type="Node"]
+script = ExtResource("1_ggdst")
+image = ExtResource("2_1hxbs")
+time_slow = 1.0
+percent = 15
+item_name = "ice sickle"
+tiers = "Uncommon"
+ATK = 1

@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bx87i1hyp33k0"]
+
+[ext_resource type="Script" path="res://Script/Enemy/basic_enemy.gd" id="1_g1bt5"]
+[ext_resource type="Texture2D" uid="uid://k5rcrkdnyn30" path="res://Art/Actor/Enemy/slime.png" id="2_cqr1x"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="3_3ndsx"]
+
+[sub_resource type="Animation" id="Animation_21s43"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qoje1"]
+resource_name = "walk"
+length = 0.25
+loop_mode = 2
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rwxv"]
+_data = {
+"RESET": SubResource("Animation_21s43"),
+"walk": SubResource("Animation_qoje1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01rwt"]
+size = Vector2(17, 13.5)
+
+[node name="slime" type="Node2D" groups=["Enemy"]]
+y_sort_enabled = true
+script = ExtResource("1_g1bt5")
+HP = 50
+SPEED = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
+autoplay = "walk"
+libraries = {
+"": SubResource("AnimationLibrary_0rwxv")
+}
+
+[node name="Sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -2)
+texture = ExtResource("2_cqr1x")
+hframes = 5
+
+[node name="hit_box" type="Area2D" parent="." groups=["Enemy"]]
+script = ExtResource("3_3ndsx")
+
+[node name="Collision" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_01rwt")
+debug_color = Color(0.988235, 0, 0.32549, 0.278431)

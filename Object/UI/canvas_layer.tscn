@@ -1,0 +1,457 @@
+[gd_scene load_steps=13 format=3 uid="uid://tinfoteyqyn4"]
+
+[ext_resource type="PackedScene" uid="uid://duujm75kmv526" path="res://Object/UI/item_frame.tscn" id="1_71c3x"]
+[ext_resource type="Script" path="res://Script/UI/item_frames.gd" id="1_igv4e"]
+[ext_resource type="Texture2D" uid="uid://dn7sq76ljgyee" path="res://Art/GUI/xp_bar0.png" id="1_pn5gk"]
+[ext_resource type="Texture2D" uid="uid://bnhm52f7jicw8" path="res://Art/GUI/xp_bar1.png" id="2_slw12"]
+[ext_resource type="Script" path="res://Script/Core/slot_machine.gd" id="3_nxg8b"]
+[ext_resource type="Texture2D" uid="uid://dryb1h5igco6p" path="res://Art/GUI/slot_board.png" id="4_4xhvv"]
+[ext_resource type="Texture2D" uid="uid://bwbrl2lgve0bl" path="res://Art/Item/claw.png" id="4_ixihh"]
+[ext_resource type="Texture2D" uid="uid://bnqamn4uv1lkb" path="res://Art/GUI/hp_bar1.png" id="5_iib2x"]
+[ext_resource type="FontFile" uid="uid://do25dy65pqvje" path="res://Font/wibu_font_numbe_color.ttf" id="6_c15dy"]
+[ext_resource type="FontFile" uid="uid://b6p4eydd5imv8" path="res://Font/wibu_font_numbe_line.ttf" id="7_m7xnw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c0b13"]
+font = ExtResource("6_c15dy")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojppl"]
+font = ExtResource("7_m7xnw")
+font_size = 8
+font_color = Color(0.0820313, 0.101563, 0.101563, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 1
+
+[node name="Inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 93.0
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="board" type="ColorRect" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.078125, 0.105469, 0.105469, 1)
+
+[node name="ItemFrames" type="GridContainer" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -102.0
+offset_right = 23.5
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+script = ExtResource("1_igv4e")
+
+[node name="item_frame0" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame1" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame2" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame3" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame4" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame5" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame6" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame7" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame8" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame9" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame10" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame11" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame12" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame13" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame14" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame15" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="PlayerState" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="board" type="ColorRect" parent="PlayerState"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.0820313, 0.101563, 0.101563, 1)
+
+[node name="sample" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -120.0
+offset_right = 68.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="xp_bar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 9.0
+grow_horizontal = 2
+size_flags_vertical = 0
+
+[node name="bar" type="TextureRect" parent="xp_bar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_right = 67.5
+offset_bottom = 10.0
+grow_horizontal = 2
+texture = ExtResource("1_pn5gk")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="xp_bar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_right = 62.5
+offset_bottom = 10.0
+grow_horizontal = 2
+size_flags_vertical = 0
+value = 100.0
+fill_mode = 6
+texture_progress = ExtResource("2_slw12")
+
+[node name="hp_bar2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+
+[node name="bar" type="TextureRect" parent="hp_bar2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = -9.0
+offset_right = 68.0
+offset_bottom = 1.0
+grow_horizontal = 2
+texture = ExtResource("1_pn5gk")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="hp_bar2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_top = -7.0
+offset_right = 63.0
+offset_bottom = 3.0
+grow_horizontal = 2
+size_flags_vertical = 0
+value = 100.0
+fill_mode = 6
+texture_progress = ExtResource("5_iib2x")
+
+[node name="slot_machine" type="Control" parent="."]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 93.0
+offset_top = -32.0
+offset_right = -92.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_nxg8b")
+
+[node name="TextureRect" type="TextureRect" parent="slot_machine"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -20.5
+offset_right = 43.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_4xhvv")
+
+[node name="slots" type="Control" parent="slot_machine"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -20.5
+offset_right = 44.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot0" type="TextureButton" parent="slot_machine/slots"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -10.5
+offset_right = -17.0
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_ixihh")
+
+[node name="slot1" type="TextureButton" parent="slot_machine/slots"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -9.5
+offset_right = 8.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_ixihh")
+
+[node name="slot2" type="TextureButton" parent="slot_machine/slots"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 17.5
+offset_top = -10.0
+offset_right = 37.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_ixihh")
+
+[node name="Numbers" type="Control" parent="slot_machine"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = 3.5
+offset_right = 44.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="number0" type="Control" parent="slot_machine/Numbers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = -52.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="color" type="Label" parent="slot_machine/Numbers/number0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -5.5
+offset_right = 11.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_c0b13")
+horizontal_alignment = 1
+
+[node name="line" type="Label" parent="slot_machine/Numbers/number0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -5.5
+offset_right = 11.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_ojppl")
+horizontal_alignment = 1
+
+[node name="number1" type="Control" parent="slot_machine/Numbers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 5.0
+offset_right = -26.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="color" type="Label" parent="slot_machine/Numbers/number1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -5.5
+offset_right = 11.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_c0b13")
+horizontal_alignment = 1
+
+[node name="line" type="Label" parent="slot_machine/Numbers/number1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -5.5
+offset_right = 11.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_ojppl")
+horizontal_alignment = 1
+
+[node name="number2" type="Control" parent="slot_machine/Numbers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = 5.0
+offset_right = 3.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="color" type="Label" parent="slot_machine/Numbers/number2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -5.5
+offset_right = 11.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_c0b13")
+horizontal_alignment = 1
+
+[node name="line" type="Label" parent="slot_machine/Numbers/number2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -5.5
+offset_right = 11.5
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_ojppl")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="slot_machine/slots/slot0" to="slot_machine" method="_slot_0_pressed"]
+[connection signal="pressed" from="slot_machine/slots/slot1" to="slot_machine" method="_slot_1_pressed"]
+[connection signal="pressed" from="slot_machine/slots/slot2" to="slot_machine" method="_slot_2_pressed"]

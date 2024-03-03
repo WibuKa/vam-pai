@@ -18,11 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 TheGame="*res://Script/Root/game_master.gd"
+Effect="*res://Script/Root/effects_system.gd"
+Item_list="*res://Object/Other/item_list.tscn"
 
 [display]
 
-window/size/viewport_width=270
-window/size/viewport_height=480
+window/size/viewport_width=320
+window/size/viewport_height=240
+window/size/window_width_override=640
+window/size/window_height_override=480
+window/stretch/mode="canvas_items"
 
 [input]
 
@@ -48,5 +53,6 @@ left={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

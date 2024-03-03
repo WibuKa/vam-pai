@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl28lor6jj43t"]
+
+[ext_resource type="Script" path="res://Script/Items/basic_item.gd" id="1_3e0ag"]
+[ext_resource type="Texture2D" uid="uid://h7nmtj1gyoeb" path="res://Art/Item/green_stone.png" id="2_4je0d"]
+
+[node name="green_stone" type="Node"]
+script = ExtResource("1_3e0ag")
+image = ExtResource("2_4je0d")
+item_name = "green stone"
+HP = 20

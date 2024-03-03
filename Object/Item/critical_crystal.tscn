@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd3dmbhxgma87"]
+
+[ext_resource type="Script" path="res://Script/Items/basic_item.gd" id="1_1dmq3"]
+[ext_resource type="Texture2D" uid="uid://055c1u4h1ew5" path="res://Art/Item/critical_crystal.png" id="2_cx0cr"]
+
+[node name="critical_crystal" type="Node"]
+script = ExtResource("1_1dmq3")
+image = ExtResource("2_cx0cr")
+item_name = "critical crystal"
+CRIT = 5

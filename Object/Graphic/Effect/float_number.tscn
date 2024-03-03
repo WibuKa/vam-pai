@@ -1,0 +1,155 @@
+[gd_scene load_steps=9 format=3 uid="uid://x564j036edia"]
+
+[ext_resource type="Script" path="res://Script/Effect/float_number.gd" id="1_2d7wf"]
+[ext_resource type="FontFile" uid="uid://bnut38oriymd" path="res://Font/ka_font_line.ttf" id="2_ygg38"]
+[ext_resource type="FontFile" uid="uid://dgvdsb83f1twk" path="res://Font/ka_font_color.ttf" id="3_2tknd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6k7l"]
+font = ExtResource("2_ygg38")
+font_size = 8
+font_color = Color(0.0784314, 0.105882, 0.105882, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o7dyb"]
+font = ExtResource("3_2tknd")
+font_size = 8
+
+[sub_resource type="Animation" id="Animation_05mik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("number:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("number:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("number:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("number:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_eaor3"]
+resource_name = "start"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("number:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 8), Vector2(0, -8), Vector2(0, -4), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("number:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("number:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("number:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0ebl"]
+_data = {
+"RESET": SubResource("Animation_05mik"),
+"start": SubResource("Animation_eaor3")
+}
+
+[node name="float_number" type="Node2D"]
+script = ExtResource("1_2d7wf")
+
+[node name="number" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, 8)
+scale = Vector2(1, 0.5)
+
+[node name="line" type="Label" parent="number"]
+offset_left = -76.0
+offset_top = -4.0
+offset_right = 78.0
+offset_bottom = 15.0
+text = "99"
+label_settings = SubResource("LabelSettings_w6k7l")
+horizontal_alignment = 1
+
+[node name="color" type="Label" parent="number"]
+offset_left = -76.0
+offset_top = -4.0
+offset_right = 78.0
+offset_bottom = 15.0
+text = "99"
+label_settings = SubResource("LabelSettings_o7dyb")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_p0ebl")
+}

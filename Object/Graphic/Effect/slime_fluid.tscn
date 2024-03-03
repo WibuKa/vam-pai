@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c88xlgu0jrca6"]
+
+[ext_resource type="Texture2D" uid="uid://8y30ij2obxsn" path="res://Art/Effect/slime_fluid.png" id="1_hqqty"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="2_hfkgm"]
+
+[node name="slime_fluid" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.196078)
+z_index = -10
+texture = ExtResource("1_hqqty")
+hframes = 8
+script = ExtResource("2_hfkgm")

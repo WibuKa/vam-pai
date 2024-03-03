@@ -1,15 +1,21 @@
 extends Projectile
 
+@onready var player =  get_node("/root/game/player")
+
 func _ready():
 	connect("area_entered",area_entered)
 
 func _physics_process(delta):
-	position.y -= SPEED * delta
+	position.y -= SPEED * delta 
 	if position.y <= -450:
 		_destroy()
 
-func area_entered(enemy):
-	enemy._take_damage(DAMAGE)
+func area_entered(hit_box):
+	if MAGIC > 0:
+		Effect._float_number(MAGIC,position - Vector2(0,18),Color(0.3411,0.847,0.949))
+	Effect._float_number(DAMAGE,position - Vector2(0,10),Color.WHITE)
+	hit_box._take_damage(DAMAGE + MAGIC)
+	player._hit(hit_box.get_parent())
 	_destroy()
 	pass
 

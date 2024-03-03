@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://vum02onbr2c4"]
+
+[ext_resource type="Script" path="res://Script/Items/basic_item.gd" id="1_c0fym"]
+[ext_resource type="Texture2D" uid="uid://bcotc5s1nwwf8" path="res://Art/Item/magic_stone.png" id="2_aij3b"]
+
+[node name="magic_stone" type="Node"]
+script = ExtResource("1_c0fym")
+image = ExtResource("2_aij3b")
+item_name = "magic stone"
+M_ATK = 5

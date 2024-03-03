@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm6r5s2mp3gcn"]
+
+[ext_resource type="Script" path="res://Script/Items/basic_item.gd" id="1_fwvbb"]
+[ext_resource type="Texture2D" uid="uid://bckb5w7v7u4ue" path="res://Art/Item/iron_ring.png" id="2_befuq"]
+
+[node name="iron_ring" type="Node"]
+script = ExtResource("1_fwvbb")
+image = ExtResource("2_befuq")
+item_name = "iron ring"
+DEF = 10

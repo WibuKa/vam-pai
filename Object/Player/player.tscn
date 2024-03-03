@@ -1,21 +1,182 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyjc5rxtgifn0"]
+[gd_scene load_steps=24 format=3 uid="uid://cyjc5rxtgifn0"]
 
 [ext_resource type="Script" path="res://Script/Core/Player/player.gd" id="1_qhecs"]
 [ext_resource type="Script" path="res://Script/Core/Player/player_state.gd" id="2_ilmvi"]
+[ext_resource type="Texture2D" uid="uid://coc3ykc3706ix" path="res://Art/Shadow/shadow_player.png" id="2_j4ovs"]
 [ext_resource type="Script" path="res://Script/Core/Player/player_move.gd" id="3_f58ou"]
+[ext_resource type="Script" path="res://Script/Core/Player/player_stats.gd" id="3_pssyx"]
 [ext_resource type="Script" path="res://Script/Core/Player/player_shot.gd" id="3_w8v28"]
+[ext_resource type="Script" path="res://Script/Core/Player/player_animation.gd" id="5_yriqo"]
+[ext_resource type="Texture2D" uid="uid://b5815v1elimgr" path="res://Art/Actor/Character/elf/leg.png" id="6_6x26f"]
+[ext_resource type="Texture2D" uid="uid://qy4sums125ne" path="res://Art/Actor/Character/elf/body.png" id="7_mmejh"]
+[ext_resource type="Script" path="res://Script/Core/Player/player_item.gd" id="9_rtgf4"]
+[ext_resource type="PackedScene" uid="uid://dr0ab5idyffau" path="res://Object/Item/ice_sickle.tscn" id="10_d72pn"]
+[ext_resource type="Script" path="res://Object/Player/player_hit_box.gd" id="12_c4oup"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_lyakn"]
+[sub_resource type="Animation" id="Animation_ke0pv"]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../leg:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0980392), Color(1, 1, 1, 1), Color(1, 1, 1, 0.0980392), Color(1, 1, 1, 1), Color(1, 1, 1, 0.0980392), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../body:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0980392), Color(1, 1, 1, 1), Color(1, 1, 1, 0.0980392), Color(1, 1, 1, 1), Color(1, 1, 1, 0.0980392), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_br08u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../leg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../body:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6gvx"]
+_data = {
+"RESET": SubResource("Animation_br08u"),
+"hurt": SubResource("Animation_ke0pv")
+}
+
+[sub_resource type="Animation" id="Animation_4ng1q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("leg:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_w7j7e"]
+resource_name = "walk"
+length = 0.64
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("leg:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5fie4"]
+_data = {
+"RESET": SubResource("Animation_4ng1q"),
+"walk": SubResource("Animation_w7j7e")
+}
+
+[sub_resource type="Animation" id="Animation_3ajf5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fw5r8"]
+resource_name = "attack"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eucog"]
+_data = {
+"RESET": SubResource("Animation_3ajf5"),
+"attack": SubResource("Animation_fw5r8")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bv7st"]
+size = Vector2(11, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oo0kk"]
+size = Vector2(11, 11)
 
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 10
 collision_mask = 12
 script = ExtResource("1_qhecs")
 
+[node name="ShadowPlayer" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.333333)
+z_index = -1
+position = Vector2(-2, 21)
+texture = ExtResource("2_j4ovs")
+
 [node name="state" type="Node" parent="."]
 script = ExtResource("2_ilmvi")
+
+[node name="stats" type="Node" parent="state"]
+script = ExtResource("3_pssyx")
+HP = 100
+DEF = 10
+ATK = 14
 
 [node name="shot" type="Node" parent="state" node_paths=PackedStringArray("ray_shot", "ray_shot2")]
 script = ExtResource("3_w8v28")
@@ -26,28 +187,76 @@ ray_shot2 = NodePath("../../Rays/shot_check2")
 [node name="move" type="Node" parent="state"]
 script = ExtResource("3_f58ou")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(32, 32)
-texture = SubResource("CanvasTexture_lyakn")
+[node name="animation" type="Node" parent="state" node_paths=PackedStringArray("body", "leg_animation", "body_animation")]
+script = ExtResource("5_yriqo")
+body = NodePath("../../body")
+leg_animation = NodePath("../../leg_animation")
+body_animation = NodePath("../../body_animation")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../state/animation")
+libraries = {
+"": SubResource("AnimationLibrary_e6gvx")
+}
+
+[node name="leg_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5fie4")
+}
+
+[node name="body_animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../leg_animation")
+libraries = {
+"": SubResource("AnimationLibrary_eucog")
+}
+
+[node name="leg" type="Sprite2D" parent="."]
+position = Vector2(-1, 8)
+texture = ExtResource("6_6x26f")
+hframes = 8
+
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2(-1, 8)
+texture = ExtResource("7_mmejh")
+hframes = 5
 
 [node name="Rays" type="Node2D" parent="."]
 
 [node name="shot_check" type="RayCast2D" parent="Rays"]
 modulate = Color(1, 0, 1, 1)
-position = Vector2(-10, 0)
-target_position = Vector2(0, -480)
+position = Vector2(-2, 3)
+target_position = Vector2(0, -200)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="shot_check2" type="RayCast2D" parent="Rays"]
 modulate = Color(1, 0, 1, 1)
-position = Vector2(10, 0)
-target_position = Vector2(0, -480)
+position = Vector2(2, 3)
+target_position = Vector2(0, -200)
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 20.5)
 shape = SubResource("RectangleShape2D_bv7st")
 debug_color = Color(0, 0.639216, 0.364706, 0.419608)
+
+[node name="shadow" type="Sprite2D" parent="."]
+
+[node name="Items" type="Node" parent="."]
+script = ExtResource("9_rtgf4")
+
+[node name="ice_sickle" parent="Items" instance=ExtResource("10_d72pn")]
+
+[node name="hit_box" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("12_c4oup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(-2, 20)
+shape = SubResource("RectangleShape2D_oo0kk")
+
+[connection signal="area_entered" from="hit_box" to="hit_box" method="coll"]

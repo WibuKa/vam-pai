@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqd2j3j7ie4xp"]
+
+[ext_resource type="Script" path="res://Script/Items/basic_item.gd" id="1_tfvvq"]
+[ext_resource type="Texture2D" uid="uid://bwbrl2lgve0bl" path="res://Art/Item/claw.png" id="2_5vu0a"]
+
+[node name="claw" type="Node"]
+script = ExtResource("1_tfvvq")
+image = ExtResource("2_5vu0a")
+item_name = "claw"
+ATK = 5

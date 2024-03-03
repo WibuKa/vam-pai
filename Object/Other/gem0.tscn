@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsn6rkvladuhh"]
+
+[ext_resource type="Script" path="res://Script/Other/gem.gd" id="1_a2qto"]
+[ext_resource type="Texture2D" uid="uid://divoat2dpebnl" path="res://Art/Other/gem0.png" id="2_j542x"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="3_yucx7"]
+
+[node name="gem" type="Node2D"]
+script = ExtResource("1_a2qto")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_j542x")
+hframes = 4
+script = ExtResource("3_yucx7")
+destroy = false

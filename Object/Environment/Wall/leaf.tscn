@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd40d4ugucgkk"]
+
+[ext_resource type="Texture2D" uid="uid://bct6hcj83sc1y" path="res://Art/Environment/Tree/tree0.png" id="1_if8ni"]
+
+[node name="leaf" type="Sprite2D"]
+position = Vector2(-1, 50)
+texture = ExtResource("1_if8ni")
+offset = Vector2(52, 0)
+hframes = 5
+frame = 1

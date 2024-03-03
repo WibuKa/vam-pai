@@ -1,0 +1,21 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckdy1h13qp3eb"]
+
+[ext_resource type="Script" path="res://Script/Other/item_list.gd" id="1_qny1a"]
+[ext_resource type="PackedScene" uid="uid://vum02onbr2c4" path="res://Object/Item/magic_stone.tscn" id="1_r1a3n"]
+[ext_resource type="PackedScene" uid="uid://dqd2j3j7ie4xp" path="res://Object/Item/claw.tscn" id="2_04f8e"]
+[ext_resource type="PackedScene" uid="uid://cm6r5s2mp3gcn" path="res://Object/Item/iron_ring.tscn" id="2_yxiyh"]
+[ext_resource type="PackedScene" uid="uid://dl28lor6jj43t" path="res://Object/Item/green_stone.tscn" id="3_u7krs"]
+[ext_resource type="PackedScene" uid="uid://dd3dmbhxgma87" path="res://Object/Item/critical_crystal.tscn" id="4_vtdwa"]
+
+[node name="Item_list" type="Node"]
+script = ExtResource("1_qny1a")
+
+[node name="claw" parent="." instance=ExtResource("2_04f8e")]
+
+[node name="magic_stone" parent="." instance=ExtResource("1_r1a3n")]
+
+[node name="iron_ring" parent="." instance=ExtResource("2_yxiyh")]
+
+[node name="green_stone" parent="." instance=ExtResource("3_u7krs")]
+
+[node name="critical_crystal" parent="." instance=ExtResource("4_vtdwa")]
