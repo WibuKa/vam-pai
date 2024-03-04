@@ -1,7 +1,12 @@
 extends Enemy
 
+var fly_point:Vector2
+var start_pos:Vector2
+var delay_fly = false
 func _ready():
 	_set_state()
+	start_pos = position
+	fly_point = get_node("/root/game/fly_point").get_child(randi_range(0,5)).position
 
 func _physics_process(delta):
 	#walk
@@ -13,8 +18,8 @@ func _physics_process(delta):
 			$Sprite.modulate.r = 1
 			slow_factor = 1
 	
-	position.y += (TheGame.ROLL_SPEED + speed) * delta * slow_factor
-	
+	_move(delta)
+
 	if time_hurt > 0:
 		time_hurt -= delta
 		$Sprite.modulate = Color(1.5, 1.5, 3)
@@ -25,6 +30,16 @@ func _physics_process(delta):
 	
 	if position.y >= 160:
 		queue_free()
+
+func _move(delta):
+	#position.y += (TheGame.ROLL_SPEED + speed) * delta * slow_factor
+	position = position.move_toward(fly_point, speed*delta)
+	if position.distance_to(fly_point) <= 5 and delay_fly == false:
+		delay_fly = true
+		await get_tree().create_timer(1).timeout
+		fly_point = get_node("/root/game/fly_point").get_child(randi_range(0,5)).position
+		start_pos = position
+		delay_fly = false
 
 func _take_damage(Damage):
 	hp -= Damage

@@ -16,5 +16,6 @@ func spawn():
 	get_node("/root/game").add_child(Ghost)
 	Ghost.texture = sprite.texture
 	Ghost.position = global_position
+	Ghost.rotation = sprite.global_rotation
 	Ghost.modulate.a = 0.25
 	pass

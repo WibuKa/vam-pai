@@ -42,20 +42,22 @@ func check_item(Name):
 	return Has
 
 
-func plus_item(Item_Name:String):
+
+func plus_item(Item_Name:String,quantity:int):
 	for n in get_children():
 		if n.item_name == Item_Name:
-			n.quantity += 1
+			n.quantity += quantity
 			print("plus item: ",n.quantity)
 			break
 	get_node("/root/game/CanvasLayer/Inventory/ItemFrames")._arrange()
 
-func add_item(Item_path:String):
+func add_item(Item_path:String,quantity:int):
 	print("add item: ",Item_path)
 	var Load = load(Item_path)
 	var Item_ = Load.instantiate()
 	add_child(Item_)
 	Item_.activate = true
+	Item_.quantity = quantity
 	set_list_name()
 	get_node("/root/game/CanvasLayer/Inventory/ItemFrames")._arrange()
 

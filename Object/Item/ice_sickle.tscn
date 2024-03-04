@@ -6,8 +6,8 @@
 [node name="ice_sickle" type="Node"]
 script = ExtResource("1_ggdst")
 image = ExtResource("2_1hxbs")
-time_slow = 1.0
-percent = 15
+time_slow = 2.0
+percent = 20
 item_name = "ice sickle"
 tiers = "Uncommon"
 ATK = 1

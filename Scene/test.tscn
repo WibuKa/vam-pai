@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4o0uwbl3adyp"]
+[gd_scene load_steps=12 format=3 uid="uid://b4o0uwbl3adyp"]
 
 [ext_resource type="PackedScene" uid="uid://cyjc5rxtgifn0" path="res://Object/Player/player.tscn" id="1_4l8op"]
 [ext_resource type="Script" path="res://Script/Core/maint.gd" id="1_jdhi0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Script/UI/canvas_layer.gd" id="3_sscec"]
 [ext_resource type="Script" path="res://Script/Core/Spawner/enemy_spawner.gd" id="4_g3rid"]
 [ext_resource type="Script" path="res://Script/Environment/wall/tree_wall.gd" id="6_vk4ct"]
+[ext_resource type="Script" path="res://Script/Environment/ground.gd" id="7_2unlj"]
 [ext_resource type="PackedScene" uid="uid://cd40d4ugucgkk" path="res://Object/Environment/Wall/leaf.tscn" id="8_eg2gq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hojp"]
@@ -57,6 +58,10 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="Environment" type="Node2D" parent="."]
+
+[node name="ground" type="Node2D" parent="Environment"]
+script = ExtResource("7_2unlj")
+OBJECT = "res://Object/Environment/Ground/rock_and_grass.tscn"
 
 [node name="wall" type="Node2D" parent="Environment"]
 

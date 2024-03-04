@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1q4fk3shvdkx"]
+
+[ext_resource type="Script" path="res://Script/Items/VX2_item.gd" id="1_vj0e0"]
+[ext_resource type="Texture2D" uid="uid://dtlr526g6p0il" path="res://Art/Item/nullt.png" id="2_unxov"]
+
+[node name="2_shot" type="Node"]
+script = ExtResource("1_vj0e0")
+projectiles = "res://Object/Bullet/knife.tscn"
+image = ExtResource("2_unxov")
+item_name = "2 shot"

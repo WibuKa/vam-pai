@@ -1,6 +1,7 @@
 extends Node
 class_name Item
 var activate = false
+@export var image:Texture
 @export var item_name = ""
 @export var quantity = 1
 @export_enum("Common","Uncommon","Rare","Epic","Mythic") var tiers = "Common"

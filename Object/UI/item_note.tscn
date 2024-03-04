@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpfs64q584sn2"]
+
+[ext_resource type="FontFile" uid="uid://ro6sasngso2g" path="res://Font/aseprite-remix.ttf" id="1_ox2xm"]
+[ext_resource type="Script" path="res://Script/UI/item_note.gd" id="1_qbris"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ydeh"]
+font = ExtResource("1_ox2xm")
+font_size = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_qidmf"]
+font = ExtResource("1_ox2xm")
+font_size = 7
+
+[node name="item_note" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qbris")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -26.0
+offset_right = 61.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.128906, 0.144531, 0.152344, 1)
+
+[node name="name_item" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = -23.0
+offset_right = 42.0
+offset_bottom = -11.0
+grow_horizontal = 2
+
+[node name="Text" type="Label" parent="name_item"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_right = 183.0
+offset_bottom = 31.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+text = "ice sickle"
+label_settings = SubResource("LabelSettings_3ydeh")
+horizontal_alignment = 1
+
+[node name="stats" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -8.5
+offset_right = 49.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="stats"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = -7.5
+offset_right = 42.0
+offset_bottom = 12.5
+grow_horizontal = 2
+text = "
++30 attack damage"
+label_settings = SubResource("LabelSettings_qidmf")

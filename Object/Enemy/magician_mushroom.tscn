@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cnxg5mavn261p"]
 
-[ext_resource type="Script" path="res://Script/Enemy/basic_enemy.gd" id="1_npky3"]
+[ext_resource type="Script" path="res://Script/Enemy/magicican_enemy.gd" id="1_kxsok"]
 [ext_resource type="Texture2D" uid="uid://daur5v3gleo4a" path="res://Art/Shadow/shadow_0.png" id="2_kvifi"]
 [ext_resource type="Texture2D" uid="uid://b3tmnj354klf6" path="res://Art/Actor/Enemy/magician_mushroom.png" id="3_bmlm1"]
 [ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="4_sgjd4"]
@@ -47,11 +47,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01rwt"]
 size = Vector2(17, 17.75)
 
-[node name="moyai_mushroom" type="Node2D"]
+[node name="magicican_mushroom" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_npky3")
+script = ExtResource("1_kxsok")
 HP = 60
-SPEED = 25
+SPEED = 60
 
 [node name="Shadow0" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.333333)

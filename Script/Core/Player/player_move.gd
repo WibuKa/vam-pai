@@ -1,6 +1,6 @@
 extends Node
 
-var direction = 0
+var direction = Vector2.ZERO
 var player:Player
 
 func _ready():
@@ -8,6 +8,13 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	direction = Input.get_axis("left","right")
-	player.velocity.x = direction * player.SPEED
+	direction = Input.get_vector("left","right","up","down")
+	if direction.y < 0:
+		direction.y = -0.75
+	
+	player.velocity = direction * player.SPEED
+	if player.position.y < -50:
+		player.position.y = -50
+	elif player.position.y > -3:
+		player.position.y = -3
 	pass

@@ -14,7 +14,7 @@ var slow = false
 var slow_time = 0
 var slow_factor = 1
 
-func _ready():
+func _set_state():
 	hp = HP
 	speed = SPEED
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tinfoteyqyn4"]
+[gd_scene load_steps=20 format=3 uid="uid://tinfoteyqyn4"]
 
 [ext_resource type="PackedScene" uid="uid://duujm75kmv526" path="res://Object/UI/item_frame.tscn" id="1_71c3x"]
 [ext_resource type="Script" path="res://Script/UI/item_frames.gd" id="1_igv4e"]
@@ -10,6 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bnqamn4uv1lkb" path="res://Art/GUI/hp_bar1.png" id="5_iib2x"]
 [ext_resource type="FontFile" uid="uid://do25dy65pqvje" path="res://Font/wibu_font_numbe_color.ttf" id="6_c15dy"]
 [ext_resource type="FontFile" uid="uid://b6p4eydd5imv8" path="res://Font/wibu_font_numbe_line.ttf" id="7_m7xnw"]
+[ext_resource type="PackedScene" uid="uid://cpfs64q584sn2" path="res://Object/UI/item_note.tscn" id="11_sbpe3"]
+[ext_resource type="Texture2D" uid="uid://cxtlq3utl5n8t" path="res://Art/GUI/item_frame.png" id="12_rgngb"]
+[ext_resource type="Script" path="res://Script/Core/health_pot.gd" id="12_vu06p"]
+[ext_resource type="Texture2D" uid="uid://dlv0iy802wuuk" path="res://Art/Item/health_pot_small0.png" id="13_ho50w"]
+[ext_resource type="Texture2D" uid="uid://dfecc6mvmx4r" path="res://Art/Item/health_pot.png" id="13_pvq0p"]
+[ext_resource type="Texture2D" uid="uid://dy8g1rv80j7un" path="res://Art/GUI/e_key.png" id="14_y432o"]
+[ext_resource type="Texture2D" uid="uid://wijhlpm7v8em" path="res://Art/Item/health_pot_small.png" id="16_j8y2r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c0b13"]
 font = ExtResource("6_c15dy")
@@ -174,7 +181,7 @@ value = 100.0
 fill_mode = 6
 texture_progress = ExtResource("2_slw12")
 
-[node name="hp_bar2" type="Control" parent="."]
+[node name="hp_bar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -184,7 +191,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0
 
-[node name="bar" type="TextureRect" parent="hp_bar2"]
+[node name="bar" type="TextureRect" parent="hp_bar"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -196,7 +203,7 @@ offset_bottom = 1.0
 grow_horizontal = 2
 texture = ExtResource("1_pn5gk")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="hp_bar2"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="hp_bar"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -211,7 +218,7 @@ value = 100.0
 fill_mode = 6
 texture_progress = ExtResource("5_iib2x")
 
-[node name="slot_machine" type="Control" parent="."]
+[node name="slot_machine" type="Control" parent="." node_paths=PackedStringArray("item_note")]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 14
@@ -225,6 +232,7 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_nxg8b")
+item_note = NodePath("../item_note")
 
 [node name="TextureRect" type="TextureRect" parent="slot_machine"]
 layout_mode = 1
@@ -242,6 +250,7 @@ grow_vertical = 2
 texture = ExtResource("4_4xhvv")
 
 [node name="slots" type="Control" parent="slot_machine"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -452,6 +461,136 @@ text = "1"
 label_settings = SubResource("LabelSettings_ojppl")
 horizontal_alignment = 1
 
+[node name="hint_slots" type="Control" parent="slot_machine"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot0" type="TextureRect" parent="slot_machine/hint_slots"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -10.5
+offset_right = -15.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot1" type="TextureRect" parent="slot_machine/hint_slots"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = -9.5
+offset_right = 9.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot2" type="TextureRect" parent="slot_machine/hint_slots"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.5
+offset_top = -9.5
+offset_right = 38.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="item_note" parent="." instance=ExtResource("11_sbpe3")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health_pot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -28.0
+offset_right = -64.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("12_vu06p")
+health_pot_small = Array[Texture]([ExtResource("13_ho50w"), ExtResource("13_pvq0p")])
+
+[node name="frame" type="TextureRect" parent="health_pot"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_rgngb")
+
+[node name="key" type="TextureRect" parent="health_pot"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.5
+offset_top = 5.0
+offset_right = 15.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_y432o")
+
+[node name="TextureButton" type="TextureButton" parent="health_pot"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.5
+offset_right = 10.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("16_j8y2r")
+
+[connection signal="mouse_entered" from="slot_machine/slots/slot0" to="slot_machine" method="_slot_0_mouse_entered"]
 [connection signal="pressed" from="slot_machine/slots/slot0" to="slot_machine" method="_slot_0_pressed"]
+[connection signal="mouse_entered" from="slot_machine/slots/slot1" to="slot_machine" method="_slot_1_mouse_entered"]
 [connection signal="pressed" from="slot_machine/slots/slot1" to="slot_machine" method="_slot_1_pressed"]
+[connection signal="mouse_entered" from="slot_machine/slots/slot2" to="slot_machine" method="_slot_2_mouse_entered"]
 [connection signal="pressed" from="slot_machine/slots/slot2" to="slot_machine" method="_slot_2_pressed"]
+[connection signal="button_down" from="health_pot/TextureButton" to="health_pot" method="_button_down"]

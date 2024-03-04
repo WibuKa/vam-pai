@@ -12,13 +12,15 @@ var time_shot = 0
 
 func _process(delta):
 	#TIMER
+	player.shooting = false
 	if time_shot > 0:
 		time_shot -= delta
-	elif ray_shot.is_colliding() or ray_shot2.is_colliding():
+	elif ray_shot.is_colliding() or ray_shot2.is_colliding() or Input.is_action_pressed("attack"):
 		time_shot = player.TIME_SHOT
 		_shoot()
 
 func  _shoot():
+	player.shooting = true
 	state.shoot = true
 	await get_tree().create_timer(0.1).timeout
 	var Bullet_load = load(projectiles)

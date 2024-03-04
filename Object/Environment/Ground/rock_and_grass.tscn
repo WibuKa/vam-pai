@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmfcjaxi2k4ff"]
+
+[ext_resource type="Texture2D" uid="uid://bi53ytapx8bth" path="res://Art/Environment/Background/rock_and_grass.png" id="1_24tg7"]
+
+[node name="rock_and_grass" type="Sprite2D"]
+z_index = -5
+texture = ExtResource("1_24tg7")
+hframes = 5
