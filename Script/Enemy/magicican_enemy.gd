@@ -6,7 +6,7 @@ var delay_fly = false
 func _ready():
 	_set_state()
 	start_pos = position
-	fly_point = get_node("/root/game/fly_point").get_child(randi_range(0,5)).position
+	fly_point = get_node("/root/game/fly_point").get_child(randi_range(0,7)).position
 
 func _physics_process(delta):
 	#walk
@@ -34,10 +34,10 @@ func _physics_process(delta):
 func _move(delta):
 	#position.y += (TheGame.ROLL_SPEED + speed) * delta * slow_factor
 	position = position.move_toward(fly_point, speed*delta)
-	if position.distance_to(fly_point) <= 5 and delay_fly == false:
+	if position.distance_to(fly_point) <= 10 and delay_fly == false:
 		delay_fly = true
-		await get_tree().create_timer(1).timeout
-		fly_point = get_node("/root/game/fly_point").get_child(randi_range(0,5)).position
+		await get_tree().create_timer(randf_range(0,0)).timeout
+		fly_point = get_node("/root/game/fly_point").get_child(randi_range(0,7)).position
 		start_pos = position
 		delay_fly = false
 
@@ -50,14 +50,6 @@ func _take_damage(Damage):
 func _death():
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
-	_gem_drop(randi_range(coin_drop.x,coin_drop.y))
+	_gem_drop()
 	pass
 
-func _gem_drop(quantity):
-	var Load = load("res://Object/Other/gem0.tscn")
-	for n in quantity:
-		var Gem = Load.instantiate()
-		get_node("/root/game/Gems").add_child(Gem)
-		Gem.position = self.position
-		Gem.position += Vector2(randi_range(-10,10),randi_range(-10,10))
-	pass

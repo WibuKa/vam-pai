@@ -35,14 +35,6 @@ func _take_damage(Damage):
 func _death():
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
-	_gem_drop(randi_range(coin_drop.x,coin_drop.y))
-	pass
-
-func _gem_drop(quantity):
-	var Load = load("res://Object/Other/gem0.tscn")
-	for n in quantity:
-		var Gem = Load.instantiate()
-		get_node("/root/game/Gems").add_child(Gem)
-		Gem.position = self.position
-		Gem.position += Vector2(randi_range(-10,10),randi_range(-10,10))
+	_gem_drop()
+	_soul_drop()
 	pass

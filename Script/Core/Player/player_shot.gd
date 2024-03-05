@@ -15,7 +15,7 @@ func _process(delta):
 	player.shooting = false
 	if time_shot > 0:
 		time_shot -= delta
-	elif ray_shot.is_colliding() or ray_shot2.is_colliding() or Input.is_action_pressed("attack"):
+	elif Input.is_action_pressed("attack"):
 		time_shot = player.TIME_SHOT
 		_shoot()
 

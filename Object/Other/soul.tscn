@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqrd2wbndn72d"]
+
+[ext_resource type="Texture2D" uid="uid://b3hppvf3r18h8" path="res://Art/Other/soul.png" id="1_qmimp"]
+[ext_resource type="Texture2D" uid="uid://bk14dxhhqrunm" path="res://Art/Effect/soul_fire.png" id="2_84t77"]
+[ext_resource type="Script" path="res://Script/Other/soul.gd" id="2_iryk4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k3k6g"]
+particles_animation = true
+particles_anim_h_frames = 11
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_i30oe"]
+offsets = PackedFloat32Array(0, 0.682243)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4k0rv"]
+gradient = SubResource("Gradient_i30oe")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w74r0"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_4k0rv")
+anim_speed_min = 3.0
+anim_speed_max = 5.0
+
+[node name="soul" type="Node2D"]
+script = ExtResource("2_iryk4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_k3k6g")
+position = Vector2(-1, -2)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_w74r0")
+texture = ExtResource("2_84t77")
+
+[node name="soul" type="Sprite2D" parent="."]
+texture = ExtResource("1_qmimp")

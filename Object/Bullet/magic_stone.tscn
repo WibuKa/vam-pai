@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://br7ldvb36i7t6"]
+
+[ext_resource type="Script" path="res://Script/Projectile/basic_bullet.gd" id="1_txwsd"]
+[ext_resource type="Texture2D" uid="uid://m6o166333be0" path="res://Art/Bullet/magic_stone.png" id="2_8qta1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvlpr"]
+size = Vector2(10, 12)
+
+[node name="magic_stone" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_txwsd")
+MAGIC = 999
+destroy = false
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_8qta1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yvlpr")
+debug_color = Color(0.976471, 0, 0.4, 0.0823529)

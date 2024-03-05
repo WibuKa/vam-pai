@@ -6,6 +6,7 @@ var exp = 0
 var max_exp = 100
 var hp = 0
 var max_hp = 0
+var soul = 0
 
 func _plus_exp(quanlity):
 	exp += quanlity
@@ -29,3 +30,6 @@ func _reset_exp():
 
 func _set_exp(number):
 	get_node("/root/game/CanvasLayer/xp_bar/TextureProgressBar").value = number
+
+func _plus_soul(quanlity):
+	soul += quanlity
