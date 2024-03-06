@@ -1,17 +1,7 @@
-extends CharacterBody2D
+extends Creature
 class_name Player
 
-var SPEED = 180.0
 var TIME_SHOT = 0.5
-var HP = 0
-var DEF = 0
-var ATK = 0
-var M_ATK = 0
-var CRIT = 0
-var SPR = 0
-
-var hp = 0
-
 var time_hurt = 0
 var shooting = false
 

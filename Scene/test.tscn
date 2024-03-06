@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4o0uwbl3adyp"]
+[gd_scene load_steps=14 format=3 uid="uid://b4o0uwbl3adyp"]
 
 [ext_resource type="PackedScene" uid="uid://cyjc5rxtgifn0" path="res://Object/Player/player.tscn" id="1_4l8op"]
 [ext_resource type="Script" path="res://Script/Core/maint.gd" id="1_jdhi0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Script/Environment/ground.gd" id="7_2unlj"]
 [ext_resource type="PackedScene" uid="uid://cd40d4ugucgkk" path="res://Object/Environment/Wall/leaf.tscn" id="8_eg2gq"]
 [ext_resource type="PackedScene" uid="uid://dqrd2wbndn72d" path="res://Object/Other/soul.tscn" id="10_m0igs"]
+[ext_resource type="PackedScene" uid="uid://bl1un6ftnavu3" path="res://Object/Bullet/E_bullet0.tscn" id="11_howvl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hojp"]
 size = Vector2(74, 300.25)
@@ -133,5 +134,8 @@ position = Vector2(27, -163)
 
 [node name="soul" parent="." instance=ExtResource("10_m0igs")]
 position = Vector2(29, -94)
+
+[node name="E_bullet" parent="." instance=ExtResource("11_howvl")]
+position = Vector2(-30, -117)
 
 [connection signal="timeout" from="system/Timer_clear" to="." method="_clear"]

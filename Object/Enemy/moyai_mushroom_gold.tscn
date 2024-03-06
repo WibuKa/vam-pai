@@ -71,12 +71,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01rwt"]
 size = Vector2(17, 17.75)
 
-[node name="moyai_mushroom" type="Node2D"]
+[node name="moyai_mushroom" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_n2t6q")
-HP = 150
-SPEED = 25
 coin_drop = Vector2(7, 9)
+SPEED = 25
+HP = 150
 
 [node name="Shadow0" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.333333)

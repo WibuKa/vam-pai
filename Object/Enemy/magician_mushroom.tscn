@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnxg5mavn261p"]
+[gd_scene load_steps=12 format=3 uid="uid://cnxg5mavn261p"]
 
 [ext_resource type="Script" path="res://Script/Enemy/magicican_enemy.gd" id="1_kxsok"]
 [ext_resource type="Texture2D" uid="uid://daur5v3gleo4a" path="res://Art/Shadow/shadow_0.png" id="2_kvifi"]
+[ext_resource type="Texture2D" uid="uid://45ht4xk82uk5" path="res://Art/Effect/bullet_build_up.png" id="3_aqd7i"]
 [ext_resource type="Texture2D" uid="uid://b3tmnj354klf6" path="res://Art/Actor/Enemy/magician_mushroom.png" id="3_bmlm1"]
 [ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="4_sgjd4"]
 [ext_resource type="Script" path="res://Script/UtilityScripts/shooting_machine.gd" id="5_f1ehn"]
@@ -23,38 +24,44 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("../bullet_build_up:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -2)]
-}
-
-[sub_resource type="Animation" id="Animation_qoje1"]
-resource_name = "walk"
-length = 0.96
-loop_mode = 1
-step = 0.08
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../bullet_build_up:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -2)]
 }
 
 [sub_resource type="Animation" id="Animation_8nn0k"]
 resource_name = "attack"
-length = 0.96
-step = 0.04
+length = 1.06
+step = 0.08
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,54 +77,116 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath("../bullet_build_up:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8, 0.88, 0.92),
+"times": PackedFloat32Array(0, 0.0001, 1.04),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../bullet_build_up:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.88, 0.96, 1.04),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -2), Vector2(0, -4), Vector2(0, -2)]
+"values": [Vector2(-1, -2), Vector2(-1, -8), Vector2(-1, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_qoje1"]
+resource_name = "idle"
+length = 0.96
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72, 0.8, 0.88),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../bullet_build_up:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0rwxv"]
 _data = {
 "RESET": SubResource("Animation_21s43"),
 "attack": SubResource("Animation_8nn0k"),
-"walk": SubResource("Animation_qoje1")
+"idle": SubResource("Animation_qoje1")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01rwt"]
 size = Vector2(14, 15.75)
 
-[node name="magicican_mushroom" type="Node2D"]
+[node name="magicican_mushroom" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_kxsok")
-HP = 60
 SPEED = 60
+HP = 60
+M_ATK = 25
 
 [node name="Shadow0" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.333333)
 z_index = -1
-position = Vector2(0, 15)
+position = Vector2(0, 14)
 texture = ExtResource("2_kvifi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
-autoplay = "walk"
+autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_0rwxv")
 }
 
+[node name="bullet_build_up" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 10.5)
+texture = ExtResource("3_aqd7i")
+hframes = 10
+
 [node name="Sprite" type="Sprite2D" parent="."]
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(0, -2)
+position = Vector2(-1, -2)
 texture = ExtResource("3_bmlm1")
 hframes = 12
 vframes = 2
 
 [node name="hit_box" type="Area2D" parent="." groups=["Enemy"]]
+position = Vector2(-1, 0)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("4_sgjd4")
@@ -127,6 +196,8 @@ position = Vector2(1, 1.125)
 shape = SubResource("RectangleShape2D_01rwt")
 debug_color = Color(0.988235, 0, 0.32549, 0.278431)
 
-[node name="shot" type="Node2D" parent="."]
-position = Vector2(0, 8)
+[node name="shot" type="Node2D" parent="." node_paths=PackedStringArray("main")]
+position = Vector2(-1, 10.5)
 script = ExtResource("5_f1ehn")
+projectile = "res://Object/Bullet/E_bullet0.tscn"
+main = NodePath("..")

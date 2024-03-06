@@ -5,3 +5,6 @@ func coll(hit):
 	if hit.is_in_group("Enemy"):
 		owner._take_damage(hit.get_parent().body_damage)
 	pass
+
+func _take_damage(damage):
+	owner._take_damage(damage)

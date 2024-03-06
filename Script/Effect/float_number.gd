@@ -1,6 +1,6 @@
 extends Node2D
 
-var number = 99
+var number = "00"
 var color:Color
 func _ready():
 	$number/line.text = str("")

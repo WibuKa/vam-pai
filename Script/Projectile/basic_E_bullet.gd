@@ -1,7 +1,5 @@
 extends Projectile
 
-@onready var player =  get_node("/root/game/player")
-
 func _ready():
 	connect("area_entered",area_entered)
 
@@ -14,11 +12,10 @@ func area_entered(hit_box):
 	if !hit_box.is_in_group("projectile"):
 		DAMAGE *= damage_factor
 		if MAGIC > 0:
-			Effect._float_number(MAGIC,global_position - Vector2(0,18),Color(0.3411,0.847,0.949))
+			Effect._float_number("-"+ str(MAGIC),global_position - Vector2(0,18),Color(0.3411,0.847,0.949))
 		if DAMAGE > 0:
-			Effect._float_number(DAMAGE,global_position - Vector2(0,10),Color.WHITE)
+			Effect._float_number("-"+str(DAMAGE),global_position - Vector2(0,10),Color(1,0.270,0.2705))
 		hit_box._take_damage(DAMAGE + MAGIC)
-		player._hit(hit_box.get_parent())
 		_destroy()
 	pass
 

@@ -1,6 +1,6 @@
 extends Node
 
-func _float_number(number:int,pos:Vector2,coler:Color):
+func _float_number(number,pos:Vector2,coler:Color):
 	var Load = load("res://Object/Graphic/Effect/float_number.tscn")
 	var Fx = Load.instantiate()
 	get_node("/root/game/Effect").add_child(Fx)

@@ -1,13 +1,10 @@
-extends Node2D
+extends Creature
 class_name Enemy
 
-@export var HP = 100
-@export var SPEED = 5
 @export var body_damage = 20
 @export var coin_drop = Vector2(2,4)
 @export var soul_drop_rate = 100
 
-var hp
 var speed
 var time_hurt = 0.0
 #state
@@ -42,3 +39,11 @@ func _soul_drop():
 		var soul = soul_load.instantiate()
 		get_node("/root/game/Drop/Souls").add_child(soul)
 		soul.position = self.position
+
+func _slow_down(delta):
+	$Sprite.modulate.r = 0
+	slow_time -= delta
+	if slow_time <= 0:
+		slow = false
+		$Sprite.modulate.r = 1
+		slow_factor = 1

@@ -1,11 +1,16 @@
-extends Node
+extends CharacterBody2D
+class_name Creature
 
+@export_subgroup("Stats")
+@export var SPEED:int
+@export var HP = 0
+@export var DEF = 0
+@export var ATK = 0
+@export var M_ATK = 0
+@export var CRIT = 0
+@export var SPR = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export_subgroup("Other")
+@export var move = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+var hp = 0

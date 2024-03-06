@@ -6,12 +6,7 @@ func _ready():
 func _physics_process(delta):
 	#walk
 	if slow:
-		$Sprite.modulate.r = 0
-		slow_time -= delta
-		if slow_time <= 0:
-			slow = false
-			$Sprite.modulate.r = 1
-			slow_factor = 1
+		_slow_down(delta)
 	
 	position.y += (TheGame.ROLL_SPEED + speed) * delta * slow_factor
 	

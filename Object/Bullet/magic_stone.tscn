@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvlpr"]
 size = Vector2(10, 12)
 
-[node name="magic_stone" type="Area2D"]
+[node name="magic_stone" type="Area2D" groups=["projectile"]]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_txwsd")

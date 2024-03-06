@@ -165,6 +165,7 @@ y_sort_enabled = true
 collision_layer = 10
 collision_mask = 12
 script = ExtResource("1_qhecs")
+SPEED = 180
 
 [node name="ShadowPlayer" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.333333)
