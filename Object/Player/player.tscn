@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cyjc5rxtgifn0"]
+[gd_scene load_steps=28 format=3 uid="uid://cyjc5rxtgifn0"]
 
 [ext_resource type="Script" path="res://Script/Core/Player/player.gd" id="1_qhecs"]
 [ext_resource type="Script" path="res://Script/Core/Player/player_state.gd" id="2_ilmvi"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0ab5idyffau" path="res://Object/Item/ice_sickle.tscn" id="10_d72pn"]
 [ext_resource type="PackedScene" uid="uid://d1q4fk3shvdkx" path="res://Object/Item/two_shot_item.tscn" id="12_7w6pw"]
 [ext_resource type="Script" path="res://Object/Player/player_hit_box.gd" id="12_c4oup"]
+[ext_resource type="PackedScene" uid="uid://dd3dmbhxgma87" path="res://Object/Item/critical_crystal.tscn" id="13_urqug"]
 [ext_resource type="Script" path="res://Script/Core/Player/player_circle.gd" id="14_eqcvr"]
 [ext_resource type="PackedScene" uid="uid://br7ldvb36i7t6" path="res://Object/Bullet/magic_stone.tscn" id="15_fx1re"]
 
@@ -165,6 +166,7 @@ y_sort_enabled = true
 collision_layer = 10
 collision_mask = 12
 script = ExtResource("1_qhecs")
+NAME = "wibu_ka"
 SPEED = 180
 
 [node name="ShadowPlayer" type="Sprite2D" parent="."]
@@ -256,6 +258,9 @@ script = ExtResource("9_rtgf4")
 
 [node name="2_shot" parent="Items" instance=ExtResource("12_7w6pw")]
 
+[node name="critical_crystal" parent="Items" instance=ExtResource("13_urqug")]
+quantity = 10
+
 [node name="hit_box" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
@@ -276,31 +281,5 @@ script = ExtResource("14_eqcvr")
 [node name="magic_stone3" parent="citcle" instance=ExtResource("15_fx1re")]
 
 [node name="magic_stone5" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone6" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone7" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone8" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone9" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone10" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone11" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone12" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone13" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone14" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone15" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone16" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone17" parent="citcle" instance=ExtResource("15_fx1re")]
-
-[node name="magic_stone4" parent="citcle" instance=ExtResource("15_fx1re")]
 
 [connection signal="area_entered" from="hit_box" to="hit_box" method="coll"]

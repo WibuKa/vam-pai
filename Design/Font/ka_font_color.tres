@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://tn4dc2oofi0b"]
+
+[ext_resource type="FontFile" uid="uid://dgvdsb83f1twk" path="res://Font/ka_font_color.ttf" id="1_rtsxt"]
+
+[resource]
+font = ExtResource("1_rtsxt")
+font_size = 8

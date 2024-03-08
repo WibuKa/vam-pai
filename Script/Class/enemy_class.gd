@@ -4,6 +4,7 @@ class_name Enemy
 @export var body_damage = 20
 @export var coin_drop = Vector2(2,4)
 @export var soul_drop_rate = 100
+var direction = Vector2.UP
 
 var speed
 var time_hurt = 0.0
@@ -41,9 +42,10 @@ func _soul_drop():
 		soul.position = self.position
 
 func _slow_down(delta):
-	$Sprite.modulate.r = 0
-	slow_time -= delta
-	if slow_time <= 0:
-		slow = false
-		$Sprite.modulate.r = 1
-		slow_factor = 1
+	if can_slow:
+		$Sprite.modulate.r = 0
+		slow_time -= delta
+		if slow_time <= 0:
+			slow = false
+			$Sprite.modulate.r = 1
+			slow_factor = 1

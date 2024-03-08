@@ -29,4 +29,8 @@ func  _shoot():
 	Bullet.position = player.position
 	Bullet.DAMAGE = player.ATK
 	Bullet.MAGIC = player.M_ATK
+	if randi_range(0,100) <= player.CRIT:
+		Bullet.crit = true
+		Bullet.DAMAGE = player.ATK * 2
+		Bullet.MAGIC = player.M_ATK * 2
 	pass

@@ -23,9 +23,9 @@ Item_list="*res://Object/Other/item_list.tscn"
 
 [display]
 
-window/size/viewport_width=320
+window/size/viewport_width=227
 window/size/viewport_height=240
-window/size/window_width_override=640
+window/size/window_width_override=454
 window/size/window_height_override=480
 window/stretch/mode="canvas_items"
 

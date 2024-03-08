@@ -16,6 +16,6 @@ func _process(delta):
 		position.y += TheGame.ROLL_SPEED*delta
 
 func _pick_up():
-	TheGame._plus_exp(2)
+	TheGame._pick_up_coin(1)
 	queue_free()
 	pass

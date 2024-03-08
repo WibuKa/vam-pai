@@ -12,5 +12,6 @@ class_name Creature
 
 @export_subgroup("Other")
 @export var move = true
+@export var can_slow = true
 
 var hp = 0

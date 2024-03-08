@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cxc7byijgowrx"]
+
+[ext_resource type="FontFile" uid="uid://bnut38oriymd" path="res://Font/ka_font_line.ttf" id="1_1cjjk"]
+
+[resource]
+font = ExtResource("1_1cjjk")
+font_size = 8
+font_color = Color(0.0820313, 0.101563, 0.101563, 1)

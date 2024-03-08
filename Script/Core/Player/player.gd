@@ -1,6 +1,9 @@
 extends Creature
 class_name Player
 
+@export var NAME = ""
+var level = 0
+
 var TIME_SHOT = 0.5
 var time_hurt = 0
 var shooting = false

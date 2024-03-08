@@ -1,15 +1,24 @@
-[gd_scene load_steps=20 format=3 uid="uid://tinfoteyqyn4"]
+[gd_scene load_steps=31 format=3 uid="uid://tinfoteyqyn4"]
 
 [ext_resource type="PackedScene" uid="uid://duujm75kmv526" path="res://Object/UI/item_frame.tscn" id="1_71c3x"]
 [ext_resource type="Script" path="res://Script/UI/item_frames.gd" id="1_igv4e"]
+[ext_resource type="Script" path="res://Script/UI/canvas_layer.gd" id="1_n6l4r"]
 [ext_resource type="Texture2D" uid="uid://dn7sq76ljgyee" path="res://Art/GUI/xp_bar0.png" id="1_pn5gk"]
 [ext_resource type="Texture2D" uid="uid://bnhm52f7jicw8" path="res://Art/GUI/xp_bar1.png" id="2_slw12"]
+[ext_resource type="Texture2D" uid="uid://b5ijr1colwfmf" path="res://Art/GUI/transcript.png" id="3_f8543"]
+[ext_resource type="Texture2D" uid="uid://ck0wdwx0fqqef" path="res://Art/GUI/soul.png" id="3_ioht0"]
+[ext_resource type="Texture2D" uid="uid://dvfk668lhj8cp" path="res://Art/GUI/avt.png" id="3_j2sij"]
 [ext_resource type="Script" path="res://Script/Core/slot_machine.gd" id="3_nxg8b"]
+[ext_resource type="Script" path="res://Script/UI/soul_display.gd" id="3_vh28s"]
 [ext_resource type="Texture2D" uid="uid://dryb1h5igco6p" path="res://Art/GUI/slot_board.png" id="4_4xhvv"]
 [ext_resource type="Texture2D" uid="uid://bwbrl2lgve0bl" path="res://Art/Item/claw.png" id="4_ixihh"]
 [ext_resource type="Texture2D" uid="uid://bnqamn4uv1lkb" path="res://Art/GUI/hp_bar1.png" id="5_iib2x"]
+[ext_resource type="LabelSettings" uid="uid://tn4dc2oofi0b" path="res://Design/Font/ka_font_color.tres" id="5_ub0v6"]
 [ext_resource type="FontFile" uid="uid://do25dy65pqvje" path="res://Font/wibu_font_numbe_color.ttf" id="6_c15dy"]
+[ext_resource type="LabelSettings" uid="uid://cxc7byijgowrx" path="res://Design/Font/ka_font_line.tres" id="6_vxapa"]
 [ext_resource type="FontFile" uid="uid://b6p4eydd5imv8" path="res://Font/wibu_font_numbe_line.ttf" id="7_m7xnw"]
+[ext_resource type="Texture2D" uid="uid://bglnktdnl0rx1" path="res://Art/GUI/coin.png" id="7_xpipw"]
+[ext_resource type="Script" path="res://Script/UI/coin_display.gd" id="8_1i53g"]
 [ext_resource type="PackedScene" uid="uid://cpfs64q584sn2" path="res://Object/UI/item_note.tscn" id="11_sbpe3"]
 [ext_resource type="Texture2D" uid="uid://cxtlq3utl5n8t" path="res://Art/GUI/item_frame.png" id="12_rgngb"]
 [ext_resource type="Script" path="res://Script/Core/health_pot.gd" id="12_vu06p"]
@@ -17,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dfecc6mvmx4r" path="res://Art/Item/health_pot.png" id="13_pvq0p"]
 [ext_resource type="Texture2D" uid="uid://dy8g1rv80j7un" path="res://Art/GUI/e_key.png" id="14_y432o"]
 [ext_resource type="Texture2D" uid="uid://wijhlpm7v8em" path="res://Art/Item/health_pot_small.png" id="16_j8y2r"]
+[ext_resource type="FontFile" uid="uid://ro6sasngso2g" path="res://Font/aseprite-remix.ttf" id="27_m0stc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c0b13"]
 font = ExtResource("6_c15dy")
@@ -27,8 +37,13 @@ font = ExtResource("7_m7xnw")
 font_size = 8
 font_color = Color(0.0820313, 0.101563, 0.101563, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_s62bx"]
+font = ExtResource("27_m0stc")
+font_size = 7
+
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 1
+script = ExtResource("1_n6l4r")
 
 [node name="Inventory" type="Control" parent="."]
 layout_mode = 3
@@ -39,6 +54,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 
 [node name="board" type="ColorRect" parent="Inventory"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,22 +65,32 @@ size_flags_horizontal = 4
 color = Color(0.078125, 0.105469, 0.105469, 1)
 
 [node name="ItemFrames" type="GridContainer" parent="Inventory"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.5
-offset_top = -102.0
-offset_right = 23.5
-offset_bottom = 102.0
+offset_left = 96.5
+offset_top = -67.0
+offset_right = 177.5
+offset_bottom = 85.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 2
+columns = 3
 script = ExtResource("1_igv4e")
 
 [node name="item_frame0" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame15" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame16" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
+layout_mode = 2
+
+[node name="item_frame17" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
 layout_mode = 2
 
 [node name="item_frame1" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
@@ -109,9 +135,6 @@ layout_mode = 2
 [node name="item_frame14" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
 layout_mode = 2
 
-[node name="item_frame15" parent="Inventory/ItemFrames" instance=ExtResource("1_71c3x")]
-layout_mode = 2
-
 [node name="PlayerState" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 11
@@ -123,6 +146,15 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 0
 
+[node name="TextureRect" type="TextureRect" parent="PlayerState"]
+z_index = 2
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 39.0
+texture = ExtResource("3_j2sij")
+
 [node name="board" type="ColorRect" parent="PlayerState"]
 layout_mode = 1
 anchors_preset = 15
@@ -132,6 +164,154 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0.0820313, 0.101563, 0.101563, 1)
+
+[node name="soul" type="Control" parent="PlayerState"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_vh28s")
+
+[node name="TextureRect" type="TextureRect" parent="PlayerState/soul"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -5.5
+offset_right = 3.0
+offset_bottom = 6.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_ioht0")
+
+[node name="Texture" type="TextureRect" parent="PlayerState/soul"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -4.5
+offset_right = 26.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f8543")
+
+[node name="number_color" type="Label" parent="PlayerState/soul"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -9.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "9999999"
+label_settings = ExtResource("5_ub0v6")
+horizontal_alignment = 2
+
+[node name="number_line" type="Label" parent="PlayerState/soul"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -9.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "9999999"
+label_settings = ExtResource("6_vxapa")
+horizontal_alignment = 2
+
+[node name="coin" type="Control" parent="PlayerState"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -28.0
+offset_right = 43.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("8_1i53g")
+
+[node name="TextureRect2" type="TextureRect" parent="PlayerState/coin"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -5.5
+offset_right = 1.0
+offset_bottom = 5.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("7_xpipw")
+
+[node name="Texture" type="TextureRect" parent="PlayerState/coin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -4.5
+offset_right = 26.5
+offset_bottom = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f8543")
+
+[node name="number_color" type="Label" parent="PlayerState/coin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "9999999"
+label_settings = ExtResource("5_ub0v6")
+horizontal_alignment = 2
+
+[node name="number_line" type="Label" parent="PlayerState/coin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "9999999"
+label_settings = ExtResource("6_vxapa")
+horizontal_alignment = 2
 
 [node name="sample" type="ColorRect" parent="."]
 visible = false
@@ -152,6 +332,8 @@ size_flags_horizontal = 4
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = -46.0
+offset_right = -46.0
 offset_bottom = 9.0
 grow_horizontal = 2
 size_flags_vertical = 0
@@ -187,6 +369,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -47.0
+offset_right = -47.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0
@@ -225,10 +409,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 93.0
-offset_top = -32.0
-offset_right = -92.0
-offset_bottom = 9.0
+offset_left = 42.0
+offset_top = -28.0
+offset_right = -143.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_nxg8b")
@@ -586,6 +770,20 @@ offset_bottom = 10.5
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("16_j8y2r")
+
+[node name="Name" type="Label" parent="."]
+offset_left = 179.0
+offset_top = 7.0
+offset_right = 224.0
+offset_bottom = 14.0
+label_settings = SubResource("LabelSettings_s62bx")
+
+[node name="Level" type="Label" parent="."]
+offset_left = 179.0
+offset_top = 21.0
+offset_right = 224.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_s62bx")
 
 [connection signal="mouse_entered" from="slot_machine/slots/slot0" to="slot_machine" method="_slot_0_mouse_entered"]
 [connection signal="pressed" from="slot_machine/slots/slot0" to="slot_machine" method="_slot_0_pressed"]

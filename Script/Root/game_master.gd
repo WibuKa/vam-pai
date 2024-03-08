@@ -7,11 +7,14 @@ var max_exp = 100
 var hp = 0
 var max_hp = 0
 var soul = 0
+var coin = 0
 
 func _plus_exp(quanlity):
 	exp += quanlity
 	_set_exp(100/max_exp * exp)
 	if exp >= max_exp:
+		get_node("/root/game/player").level += 1
+		_reset_exp()
 		get_node("/root/game/CanvasLayer/slot_machine")._spin()
 
 func _process(delta):
@@ -28,6 +31,11 @@ func _reset_exp():
 	exp = 0
 	_set_exp(0)
 
+func _pick_up_coin(quanlity):
+	_plus_exp(quanlity)
+	coin += quanlity
+	pass
+	
 func _set_exp(number):
 	get_node("/root/game/CanvasLayer/xp_bar/TextureProgressBar").value = number
 

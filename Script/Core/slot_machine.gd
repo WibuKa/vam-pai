@@ -73,7 +73,6 @@ func _pick_item(Number_slot):
 	else :
 		player_items.add_item(path_items[Number_slot],number_items[Number_slot])
 		print("slot_machine >>",number_items)
-	TheGame._reset_exp()
 	$"../item_note".visible = false
 
 func _slot_0_mouse_entered():

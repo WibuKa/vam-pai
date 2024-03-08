@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4o0uwbl3adyp"]
+[gd_scene load_steps=13 format=3 uid="uid://b4o0uwbl3adyp"]
 
 [ext_resource type="PackedScene" uid="uid://cyjc5rxtgifn0" path="res://Object/Player/player.tscn" id="1_4l8op"]
 [ext_resource type="Script" path="res://Script/Core/maint.gd" id="1_jdhi0"]
 [ext_resource type="PackedScene" uid="uid://tinfoteyqyn4" path="res://Object/UI/canvas_layer.tscn" id="2_wbjy6"]
 [ext_resource type="Script" path="res://Script/Core/Spawner/enemy_spawn_manager.gd" id="3_ot5s5"]
-[ext_resource type="Script" path="res://Script/UI/canvas_layer.gd" id="3_sscec"]
 [ext_resource type="Script" path="res://Script/Core/Spawner/enemy_spawner.gd" id="4_g3rid"]
 [ext_resource type="Script" path="res://Script/Environment/wall/tree_wall.gd" id="6_vk4ct"]
 [ext_resource type="Script" path="res://Script/Environment/ground.gd" id="7_2unlj"]
@@ -28,10 +27,9 @@ autostart = true
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_wbjy6")]
 visible = false
-script = ExtResource("3_sscec")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -83)
+position = Vector2(46, -83)
 
 [node name="player" parent="." instance=ExtResource("1_4l8op")]
 unique_name_in_owner = true
@@ -43,6 +41,16 @@ script = ExtResource("3_ot5s5")
 [node name="spawner" type="Node" parent="SpawnEnemyManager"]
 script = ExtResource("4_g3rid")
 path_enemy = "res://Object/Enemy/moyai_mushroom.tscn"
+TIME_SPAWN = Vector2(1, 5)
+
+[node name="spawner5" type="Node" parent="SpawnEnemyManager"]
+script = ExtResource("4_g3rid")
+path_enemy = "res://Object/Enemy/RL_XXX.tscn"
+TIME_SPAWN = Vector2(1, 5)
+
+[node name="spawner4" type="Node" parent="SpawnEnemyManager"]
+script = ExtResource("4_g3rid")
+path_enemy = "res://Object/Enemy/skull_fire.tscn"
 TIME_SPAWN = Vector2(1, 5)
 
 [node name="spawner2" type="Node" parent="SpawnEnemyManager"]

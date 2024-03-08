@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csjjulvi8dc08"]
+
+[ext_resource type="Script" path="res://Script/Items/basic_item.gd" id="1_68rrn"]
+[ext_resource type="Texture2D" uid="uid://dov76bmtilam1" path="res://Art/Item/spell_tome.png" id="2_eshac"]
+
+[node name="spell_book" type="Node"]
+script = ExtResource("1_68rrn")
+image = ExtResource("2_eshac")
+item_name = "spell book"
+M_ATK = 5

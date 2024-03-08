@@ -8,3 +8,4 @@ var direction = Vector2.DOWN
 var damage_factor = 1
 var magic_factor = 1
 @export var destroy = true
+var crit = false
