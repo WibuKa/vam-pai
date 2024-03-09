@@ -18,7 +18,7 @@ HP = 60
 can_slow = false
 
 [node name="Shadow0" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.333333)
+modulate = Color(1, 1, 1, 0.0980392)
 z_index = -1
 position = Vector2(0, 18)
 texture = ExtResource("2_t3sla")

@@ -6,6 +6,21 @@
 [ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="4_p76sr"]
 [ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="4_xq8hi"]
 
+[sub_resource type="Animation" id="Animation_rkq0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+
 [sub_resource type="Animation" id="Animation_k46q5"]
 resource_name = "start"
 length = 0.4
@@ -22,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -5), Vector2(0, -5.5), Vector2(0, -6), Vector2(0, -5.5)]
-}
-
-[sub_resource type="Animation" id="Animation_rkq0q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_28aip"]
@@ -57,7 +57,7 @@ HP = 60
 can_slow = false
 
 [node name="Shadow0" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.333333)
+modulate = Color(1, 1, 1, 0.0980392)
 z_index = -1
 position = Vector2(0, 18)
 texture = ExtResource("2_mo0ys")

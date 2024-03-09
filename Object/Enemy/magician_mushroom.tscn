@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://45ht4xk82uk5" path="res://Art/Effect/bullet_build_up.png" id="3_aqd7i"]
 [ext_resource type="Texture2D" uid="uid://b3tmnj354klf6" path="res://Art/Actor/Enemy/magician_mushroom.png" id="3_bmlm1"]
 [ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="4_sgjd4"]
-[ext_resource type="Script" path="res://Script/UtilityScripts/shooting_machine.gd" id="5_f1ehn"]
+[ext_resource type="Script" path="res://Script/Guns/machine_gun.gd" id="6_6wygs"]
 
 [sub_resource type="Animation" id="Animation_21s43"]
 length = 0.001
@@ -159,7 +159,7 @@ HP = 60
 M_ATK = 25
 
 [node name="Shadow0" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.333333)
+modulate = Color(1, 1, 1, 0.0980392)
 z_index = -1
 position = Vector2(0, 14)
 texture = ExtResource("2_kvifi")
@@ -198,6 +198,8 @@ debug_color = Color(0.988235, 0, 0.32549, 0.278431)
 
 [node name="shot" type="Node2D" parent="." node_paths=PackedStringArray("main")]
 position = Vector2(-1, 10.5)
-script = ExtResource("5_f1ehn")
+script = ExtResource("6_6wygs")
+quantily = 3
+TIME_DELAY = 0.03
 projectile = "res://Object/Bullet/E_bullet0.tscn"
 main = NodePath("..")

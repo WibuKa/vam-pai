@@ -1,5 +1,8 @@
 extends Node
 
+var player_position = Vector2.ZERO
+var player:Player
+
 var ROLL_SPEED = 14
 var MAGNET = 30
 var exp = 0
@@ -8,6 +11,9 @@ var hp = 0
 var max_hp = 0
 var soul = 0
 var coin = 0
+
+func _ready():
+	player = get_node("/root/game/player")
 
 func _plus_exp(quanlity):
 	exp += quanlity
@@ -18,6 +24,7 @@ func _plus_exp(quanlity):
 		get_node("/root/game/CanvasLayer/slot_machine")._spin()
 
 func _process(delta):
+	player_position = player.position
 	hp = get_node("/root/game/player").hp
 	max_hp = get_node("/root/game/player").HP
 	get_node("/root/game/CanvasLayer/hp_bar/TextureProgressBar").value = int(100.0/float(max_hp) * hp) 
@@ -41,3 +48,4 @@ func _set_exp(number):
 
 func _plus_soul(quanlity):
 	soul += quanlity
+

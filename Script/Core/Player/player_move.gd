@@ -13,8 +13,8 @@ func _physics_process(delta):
 		direction.y = -0.75
 	
 	player.velocity = direction * player.SPEED
-	if player.position.y < -50:
-		player.position.y = -50
+	if player.position.y < -120:
+		player.position.y = -120
 	elif player.position.y > -3:
 		player.position.y = -3
 	pass

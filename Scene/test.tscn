@@ -46,7 +46,7 @@ TIME_SPAWN = Vector2(1, 5)
 [node name="spawner5" type="Node" parent="SpawnEnemyManager"]
 script = ExtResource("4_g3rid")
 path_enemy = "res://Object/Enemy/RL_XXX.tscn"
-TIME_SPAWN = Vector2(1, 5)
+TIME_SPAWN = Vector2(10, 30)
 
 [node name="spawner4" type="Node" parent="SpawnEnemyManager"]
 script = ExtResource("4_g3rid")
@@ -144,6 +144,6 @@ position = Vector2(27, -163)
 position = Vector2(29, -94)
 
 [node name="E_bullet" parent="." instance=ExtResource("11_howvl")]
-position = Vector2(-30, -117)
+position = Vector2(-40, 70)
 
 [connection signal="timeout" from="system/Timer_clear" to="." method="_clear"]

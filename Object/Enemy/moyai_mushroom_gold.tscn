@@ -79,7 +79,7 @@ SPEED = 25
 HP = 150
 
 [node name="Shadow0" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.333333)
+modulate = Color(1, 1, 1, 0.0980392)
 z_index = -1
 position = Vector2(0, 9)
 texture = ExtResource("2_x3785")

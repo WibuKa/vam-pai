@@ -5,7 +5,7 @@ func _ready():
 
 func _physics_process(delta):
 	position -= SPEED * delta * direction
-	if position.y < -450 or position.y > 15:
+	if position.y < -450 or position.y > 70:
 		_destroy()
 
 func area_entered(hit_box):
