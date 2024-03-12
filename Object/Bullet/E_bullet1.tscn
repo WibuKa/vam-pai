@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpqp37tgqph6e"]
+
+[ext_resource type="Script" path="res://Script/Projectile/basic_E_bullet.gd" id="1_m8agi"]
+[ext_resource type="Texture2D" uid="uid://crcgwfmdi0b8j" path="res://Art/Bullet/Enemy_bullet1.png" id="2_q04bp"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="3_xpcek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnbmt"]
+size = Vector2(7, 7)
+
+[node name="E_bullet" type="Area2D" groups=["projectile"]]
+z_index = 2
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_m8agi")
+SPEED = 100
+DAMAGE = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(-1, 0)
+texture = ExtResource("2_q04bp")
+hframes = 3
+script = ExtResource("3_xpcek")
+TIME = 0.08
+destroy = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_fnbmt")
+debug_color = Color(0.839216, 0.384314, 0, 0.0784314)

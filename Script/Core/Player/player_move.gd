@@ -9,9 +9,11 @@ func _ready():
 
 func _physics_process(delta):
 	direction = Input.get_vector("left","right","up","down")
-	if direction.y < 0:
-		direction.y = -0.75
-	
+	if direction != Vector2.ZERO:
+		$"..".walk = true
+		direction.y = direction.y * 0.8
+	else :
+		$"..".walk = false
 	player.velocity = direction * player.SPEED
 	if player.position.y < -120:
 		player.position.y = -120

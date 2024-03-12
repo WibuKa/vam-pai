@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://tinfoteyqyn4"]
+[gd_scene load_steps=30 format=3 uid="uid://tinfoteyqyn4"]
 
 [ext_resource type="PackedScene" uid="uid://duujm75kmv526" path="res://Object/UI/item_frame.tscn" id="1_71c3x"]
 [ext_resource type="Script" path="res://Script/UI/item_frames.gd" id="1_igv4e"]
@@ -23,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://cxtlq3utl5n8t" path="res://Art/GUI/item_frame.png" id="12_rgngb"]
 [ext_resource type="Script" path="res://Script/Core/health_pot.gd" id="12_vu06p"]
 [ext_resource type="Texture2D" uid="uid://dlv0iy802wuuk" path="res://Art/Item/health_pot_small0.png" id="13_ho50w"]
-[ext_resource type="Texture2D" uid="uid://dfecc6mvmx4r" path="res://Art/Item/health_pot.png" id="13_pvq0p"]
 [ext_resource type="Texture2D" uid="uid://dy8g1rv80j7un" path="res://Art/GUI/e_key.png" id="14_y432o"]
 [ext_resource type="Texture2D" uid="uid://wijhlpm7v8em" path="res://Art/Item/health_pot_small.png" id="16_j8y2r"]
 [ext_resource type="FontFile" uid="uid://ro6sasngso2g" path="res://Font/aseprite-remix.ttf" id="27_m0stc"]
@@ -724,7 +723,7 @@ offset_bottom = -6.0
 grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("12_vu06p")
-health_pot_small = Array[Texture]([ExtResource("13_ho50w"), ExtResource("13_pvq0p")])
+health_pot_small = Array[Texture]([ExtResource("16_j8y2r"), ExtResource("13_ho50w")])
 
 [node name="frame" type="TextureRect" parent="health_pot"]
 layout_mode = 1

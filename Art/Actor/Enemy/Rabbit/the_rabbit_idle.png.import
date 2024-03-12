@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ls07r7urngrk"
-path="res://.godot/imported/test.png-7b440f00c4d6e158cf8c5ca9942e61ef.ctex"
+uid="uid://bmjj81v0xivgi"
+path="res://.godot/imported/the_rabbit_idle.png-b249427c4da932cfb110379ffa9458ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Actor/Enemy/test.png"
-dest_files=["res://.godot/imported/test.png-7b440f00c4d6e158cf8c5ca9942e61ef.ctex"]
+source_file="res://Art/Actor/Enemy/Rabbit/the_rabbit_idle.png"
+dest_files=["res://.godot/imported/the_rabbit_idle.png-b249427c4da932cfb110379ffa9458ca.ctex"]
 
 [params]
 

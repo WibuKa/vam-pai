@@ -1,5 +1,4 @@
 extends Projectile
-
 @onready var player =  get_node("/root/game/player")
 
 func _ready():

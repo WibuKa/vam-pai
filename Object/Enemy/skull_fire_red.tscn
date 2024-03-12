@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbmhctedc5kkj"]
+
+[ext_resource type="Script" path="res://Script/Enemy/basic_enemy.gd" id="1_5dn8y"]
+[ext_resource type="Texture2D" uid="uid://daur5v3gleo4a" path="res://Art/Shadow/shadow_0.png" id="2_5b63e"]
+[ext_resource type="Script" path="res://Script/Enemy/self_destruct.gd" id="2_a3im8"]
+[ext_resource type="Script" path="res://Script/Guns/machine_gun.gd" id="3_tpbuh"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="4_3qop0"]
+[ext_resource type="Texture2D" uid="uid://bf6lk8p2soxh5" path="res://Art/Actor/Enemy/red_skull_fire.png" id="5_b6w82"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="5_wdele"]
+
+[sub_resource type="Animation" id="Animation_rkq0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_k46q5"]
+resource_name = "start"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Sprite:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, -5.5), Vector2(0, -6), Vector2(0, -5.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28aip"]
+_data = {
+"RESET": SubResource("Animation_rkq0q"),
+"start": SubResource("Animation_k46q5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01rwt"]
+size = Vector2(15, 17)
+
+[node name="red_skull_fire" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(0, -18)
+script = ExtResource("1_5dn8y")
+HP = 40
+
+[node name="self_destruct" type="Node2D" parent="."]
+script = ExtResource("2_a3im8")
+
+[node name="gun" type="Node2D" parent="self_destruct" node_paths=PackedStringArray("main")]
+script = ExtResource("3_tpbuh")
+target_type = "None"
+projectile = "res://Object/Bullet/E_bullet1.tscn"
+main = NodePath("../..")
+direction = Vector2(1, 1)
+
+[node name="gun2" type="Node2D" parent="self_destruct" node_paths=PackedStringArray("main")]
+script = ExtResource("3_tpbuh")
+target_type = "None"
+projectile = "res://Object/Bullet/E_bullet1.tscn"
+main = NodePath("../..")
+direction = Vector2(-1, -1)
+
+[node name="gun3" type="Node2D" parent="self_destruct" node_paths=PackedStringArray("main")]
+script = ExtResource("3_tpbuh")
+target_type = "None"
+projectile = "res://Object/Bullet/E_bullet1.tscn"
+main = NodePath("../..")
+direction = Vector2(1, -1)
+
+[node name="gun4" type="Node2D" parent="self_destruct" node_paths=PackedStringArray("main")]
+script = ExtResource("3_tpbuh")
+target_type = "None"
+projectile = "res://Object/Bullet/E_bullet1.tscn"
+main = NodePath("../..")
+direction = Vector2(-1, 1)
+
+[node name="Shadow0" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0980392)
+z_index = -1
+position = Vector2(0, 18)
+texture = ExtResource("2_5b63e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../hit_box/Collision")
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_28aip")
+}
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -5)
+texture = ExtResource("5_b6w82")
+hframes = 6
+script = ExtResource("4_3qop0")
+TIME = 0.08
+destroy = false
+
+[node name="hit_box" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("5_wdele")
+
+[node name="Collision" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_01rwt")
+debug_color = Color(0.988235, 0, 0.32549, 0.278431)

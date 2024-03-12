@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjxfgjb06ent7"]
+
+[ext_resource type="Script" path="res://Script/Projectile/thorn_ball.gd" id="1_2ooqk"]
+[ext_resource type="Texture2D" uid="uid://xnsj8vro82wa" path="res://Art/Bullet/thorn_ball.png" id="2_imlvl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnbmt"]
+size = Vector2(10, 10)
+
+[node name="thorn_ball" type="Area2D" groups=["projectile"]]
+z_index = 2
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_2ooqk")
+SPEED = 350
+DAMAGE = 65
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+texture = ExtResource("2_imlvl")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fnbmt")
+debug_color = Color(0.839216, 0.384314, 0, 0.0784314)

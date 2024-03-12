@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ls07r7urngrk"
-path="res://.godot/imported/test.png-7b440f00c4d6e158cf8c5ca9942e61ef.ctex"
+uid="uid://cg8tnekabhi16"
+path="res://.godot/imported/rabbit.png-2e31cada38b92bb265f939cac7b856b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Actor/Enemy/test.png"
-dest_files=["res://.godot/imported/test.png-7b440f00c4d6e158cf8c5ca9942e61ef.ctex"]
+source_file="res://Art/Actor/Enemy/rabbit.png"
+dest_files=["res://.godot/imported/rabbit.png-2e31cada38b92bb265f939cac7b856b0.ctex"]
 
 [params]
 

@@ -52,9 +52,7 @@ size = Vector2(15, 17)
 y_sort_enabled = true
 position = Vector2(0, -18)
 script = ExtResource("1_abxjp")
-coin_drop = Vector2(2, 3)
-HP = 60
-can_slow = false
+HP = 40
 
 [node name="Shadow0" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.0980392)

@@ -1,6 +1,6 @@
 extends ShootingMachine
 
-@export_enum("player","random","front") var target_type = "player"
+@export_enum("Player","Random","None") var target_type = "player"
 @export var quantily = 1
 @export var TIME_DELAY = 0.1
 var position_shot = Vector2.ZERO
@@ -14,7 +14,7 @@ func _ready():
 
 func _shoot():
 	position_shot = global_position
-	if target_type == "player":
+	if target_type == "Player":
 		direction = global_position.direction_to(TheGame.player_position)
 		direction = -direction
 	

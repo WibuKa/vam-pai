@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ls07r7urngrk"
-path="res://.godot/imported/test.png-7b440f00c4d6e158cf8c5ca9942e61ef.ctex"
+uid="uid://bf6lk8p2soxh5"
+path="res://.godot/imported/red_skull_fire.png-5a863ac35a4a237c843d91b6fd3da5ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Actor/Enemy/test.png"
-dest_files=["res://.godot/imported/test.png-7b440f00c4d6e158cf8c5ca9942e61ef.ctex"]
+source_file="res://Art/Actor/Enemy/red_skull_fire.png"
+dest_files=["res://.godot/imported/red_skull_fire.png-5a863ac35a4a237c843d91b6fd3da5ad.ctex"]
 
 [params]
 

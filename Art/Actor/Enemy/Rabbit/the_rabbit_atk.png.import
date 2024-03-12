@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfecc6mvmx4r"
-path="res://.godot/imported/health_pot.png-12ea4c91ddc67fefca23024272e2252d.ctex"
+uid="uid://iay4oidj0khl"
+path="res://.godot/imported/the_rabbit_atk.png-3d62eb6ca94fccbdc77965c619d086d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Item/health_pot.png"
-dest_files=["res://.godot/imported/health_pot.png-12ea4c91ddc67fefca23024272e2252d.ctex"]
+source_file="res://Art/Actor/Enemy/Rabbit/the_rabbit_atk.png"
+dest_files=["res://.godot/imported/the_rabbit_atk.png-3d62eb6ca94fccbdc77965c619d086d6.ctex"]
 
 [params]
 

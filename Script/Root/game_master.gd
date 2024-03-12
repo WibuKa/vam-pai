@@ -3,7 +3,7 @@ extends Node
 var player_position = Vector2.ZERO
 var player:Player
 
-var ROLL_SPEED = 14
+var ROLL_SPEED = 20
 var MAGNET = 30
 var exp = 0
 var max_exp = 100

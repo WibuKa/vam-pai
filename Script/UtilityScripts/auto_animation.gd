@@ -9,9 +9,11 @@ func _ready():
 		queue_free()
 
 func _animation():
-	frame = 0
 	for n in hframes-1:
 		await get_tree().create_timer(TIME).timeout
 		frame += 1
+		if frame + 1 >= hframes:
+			break
 	await get_tree().create_timer(TIME).timeout
+	frame = 0
 	_animation()

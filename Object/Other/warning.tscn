@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://blrxjfwuwet3q"]
+
+[ext_resource type="Script" path="res://Script/Other/warning.gd" id="1_1mi47"]
+[ext_resource type="Texture2D" uid="uid://coigcuspdwrib" path="res://Art/Other/warning.png" id="2_a422w"]
+
+[node name="warning" type="Node2D"]
+script = ExtResource("1_1mi47")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_a422w")

@@ -18,6 +18,7 @@ func _process(delta):
 	elif Input.is_action_pressed("attack"):
 		time_shot = player.TIME_SHOT
 		_shoot()
+	
 
 func  _shoot():
 	player.shooting = true

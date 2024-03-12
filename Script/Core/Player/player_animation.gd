@@ -9,6 +9,12 @@ func _attack():
 	body_animation.play("attack")
 	pass
 
+func _stop_attack():
+	body_animation.play("RESET")
+
 func _walk():
 	leg_animation.play("walk")
 	pass
+
+func _stop():
+	leg_animation.play("RESET")

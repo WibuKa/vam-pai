@@ -3,6 +3,10 @@ extends Enemy
 func _ready():
 	_set_state()
 
+func _process(delta):
+	if death:
+		_death()
+
 func _physics_process(delta):
 	#walk
 	if slow:
@@ -29,10 +33,9 @@ func _take_damage(Damage):
 	hp -= Damage
 	time_hurt = 0.1
 	if hp <= 0:
-		_death()
+		death = true
 
 func _death():
-	await get_tree().create_timer(0.1).timeout
 	queue_free()
 	_gem_drop()
 	_soul_drop()

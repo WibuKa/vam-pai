@@ -3,9 +3,9 @@ class_name Enemy
 
 @export var body_damage = 20
 @export var coin_drop = Vector2(2,4)
-@export var soul_drop_rate = 100
+@export var soul_drop_rate = 20
 var direction = Vector2.UP
-
+var death = false
 var speed
 var time_hurt = 0.0
 #state
@@ -15,6 +15,8 @@ var slow_factor = 1
 
 @onready var gem_load = load("res://Object/Other/gem0.tscn")
 @onready var soul_load = load("res://Object/Other/soul.tscn")
+
+var player:Player
 
 func _set_state():
 	hp = HP
