@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="3_yucx7"]
 
 [node name="gem" type="Node2D"]
+z_index = -2
 script = ExtResource("1_a2qto")
 
 [node name="sprite" type="Sprite2D" parent="."]

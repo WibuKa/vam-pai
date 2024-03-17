@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp06q74yhj03o"]
+[gd_scene load_steps=9 format=3 uid="uid://bmed60bimp7fp"]
 
-[ext_resource type="Script" path="res://Script/Enemy/basic_enemy.gd" id="1_qp7dh"]
-[ext_resource type="Texture2D" uid="uid://btihaa6eihywp" path="res://Art/Actor/Enemy/chicken.png" id="2_gicy3"]
-[ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="3_p48py"]
+[ext_resource type="Script" path="res://Script/Enemy/basic_enemy.gd" id="1_epdfh"]
+[ext_resource type="Texture2D" uid="uid://btihaa6eihywp" path="res://Art/Actor/Enemy/chicken.png" id="2_kmonc"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="3_gbtr2"]
+[ext_resource type="PackedScene" uid="uid://blrxjfwuwet3q" path="res://Object/Other/warning.tscn" id="4_348ih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fulh5"]
 size = Vector2(14, 15.75)
@@ -71,19 +72,19 @@ _data = {
 }
 
 [node name="chicken" type="CharacterBody2D"]
-script = ExtResource("1_qp7dh")
+script = ExtResource("1_epdfh")
 SPEED = 150
 HP = 9999
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_gicy3")
+texture = ExtResource("2_kmonc")
 hframes = 8
 
 [node name="hit_box" type="Area2D" parent="." groups=["Enemy"]]
 position = Vector2(-1, 0)
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("3_p48py")
+script = ExtResource("3_gbtr2")
 
 [node name="Collision" type="CollisionShape2D" parent="hit_box"]
 position = Vector2(1, 1.125)
@@ -95,3 +96,6 @@ autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_ri8lv")
 }
+
+[node name="warning" parent="." instance=ExtResource("4_348ih")]
+position = Vector2(0, 37)

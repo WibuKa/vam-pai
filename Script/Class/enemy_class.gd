@@ -4,7 +4,9 @@ class_name Enemy
 @export var body_damage = 20
 @export var coin_drop = Vector2(2,4)
 @export var soul_drop_rate = 20
-var direction = Vector2.UP
+@export var direction = Vector2.DOWN
+var time_delay_spawn = 0
+var delay_spawn = false
 var death = false
 var speed
 var time_hurt = 0.0

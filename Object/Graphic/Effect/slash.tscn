@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm3gk1ry50bia"]
+
+[ext_resource type="Texture2D" uid="uid://csf3m2vsntkrb" path="res://Art/Effect/slash.png" id="1_qfdeg"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="2_41oad"]
+
+[node name="slash" type="Sprite2D"]
+texture = ExtResource("1_qfdeg")
+hframes = 3
+script = ExtResource("2_41oad")
+TIME = 0.05
+random_scale = true

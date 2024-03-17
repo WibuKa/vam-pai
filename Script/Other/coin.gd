@@ -11,7 +11,7 @@ func _process(delta):
 		_pick_up()
 	
 	if pick_up == true:
-		position = position.lerp(player.position,5*delta)
+		position = position.lerp(player.position,10*delta)
 	else :
 		position.y += TheGame.ROLL_SPEED*delta
 

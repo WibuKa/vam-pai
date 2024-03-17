@@ -18,4 +18,6 @@ func spawn():
 	Ghost.position = global_position
 	Ghost.rotation = sprite.global_rotation
 	Ghost.modulate.a = 0.25
+	Ghost.hframes = sprite.hframes
+	Ghost.frame = sprite.frame
 	pass

@@ -56,6 +56,7 @@ func _take_damage(Damage):
 		_death()
 
 func _death():
+	get_node("/root/game/SpawnEnemyManager").kill_rabbit += 1;
 	await get_tree().create_timer(0.1).timeout
 	queue_free()
 	_gem_drop()
@@ -63,10 +64,10 @@ func _death():
 	pass
 
 func _spawn_chicken():
-	var Load = load("res://Object/Bullet/chicken.tscn")
+	var Load = load("res://Object/Enemy/chicken.tscn")
 	var chicken = Load.instantiate()
 	get_node("/root/game").add_child(chicken)
-	chicken.position = position + Vector2(1,15)
+	chicken.position = position + Vector2(0,16)
 	pass
 
 func _jump_out_chiken():

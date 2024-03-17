@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp6g13mwpegl0"]
+
+[ext_resource type="Script" path="res://Script/Enemy/basic_enemy.gd" id="1_rg51u"]
+[ext_resource type="Texture2D" uid="uid://daur5v3gleo4a" path="res://Art/Shadow/shadow_0.png" id="2_2x4cm"]
+[ext_resource type="Texture2D" uid="uid://dk3mwbx2htngk" path="res://Art/Actor/Enemy/onion.png" id="3_gya6k"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="4_5q5m5"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="4_ebwbt"]
+[ext_resource type="Script" path="res://Script/Plugins/zigzag.gd" id="6_hl668"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01rwt"]
+size = Vector2(15, 12)
+
+[node name="onion" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_rg51u")
+flip = true
+coin_drop = Vector2(0, 2)
+SPEED = 30
+HP = 44
+
+[node name="Shadow0" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0980392)
+z_index = -1
+position = Vector2(0, 9)
+texture = ExtResource("2_2x4cm")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -5)
+texture = ExtResource("3_gya6k")
+hframes = 4
+script = ExtResource("4_5q5m5")
+TIME = 0.08
+destroy = false
+
+[node name="hit_box" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("4_ebwbt")
+
+[node name="Collision" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_01rwt")
+debug_color = Color(0.988235, 0, 0.32549, 0.278431)
+
+[node name="zigzag" type="Node2D" parent="."]
+script = ExtResource("6_hl668")

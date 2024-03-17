@@ -6,7 +6,7 @@ func _ready():
 
 func _physics_process(delta):
 	position -= SPEED * delta * direction
-	if position.y < -450 or position.y > 15:
+	if position.y < -208 or position.y > 15:
 		_destroy()
 
 func area_entered(hit_box):
@@ -21,6 +21,7 @@ func area_entered(hit_box):
 			Effect._float_number(str(DAMAGE) + sub_text,global_position - Vector2(0,10),Color.WHITE)
 		hit_box._take_damage(DAMAGE + MAGIC)
 		player._hit(hit_box.get_parent())
+		_hit_effect("res://Object/Graphic/Effect/slash.tscn",hit_box.get_parent().position)
 		_destroy()
 	pass
 
