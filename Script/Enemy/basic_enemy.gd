@@ -22,7 +22,6 @@ func _physics_process(delta):
 		position.x += speed * direction.x * delta
 		position.y += speed * direction.y * delta
 		position.y += TheGame.ROLL_SPEED * delta
-
 	
 	if time_hurt > 0:
 		time_hurt -= delta
@@ -33,15 +32,9 @@ func _physics_process(delta):
 	if position.y >= 160:
 		queue_free()
 
-func _take_damage(Damage):
-	if delay_spawn == false:
-		hp -= Damage
-		time_hurt = 0.1
-		if hp <= 0:
-			death = true
-
 func _death():
-	queue_free()
+	_spawn_dust()
 	_gem_drop()
 	_soul_drop()
+	queue_free()
 	pass

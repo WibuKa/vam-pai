@@ -7,18 +7,19 @@ func _ready():
 	time_spawn_tree = randf_range(0.5,4)
 func _process(delta):
 	#--SPAWN--#
-	if time_spawn_tree > 0:
-		time_spawn_tree -= delta
-	else :
-		time_spawn_tree = randf_range(0.5,4)
-		spawn_tree()
-	
-	#--ROLL--#
-	if get_child_count() > 0:
-		for n in get_children():
-			n.position.y += TheGame.ROLL_SPEED * delta
-			if n.position.y >= 50:
-				n.queue_free()
+	if TheGame.ROLL_SPEED != 0:
+		if time_spawn_tree > 0:
+			time_spawn_tree -= delta
+		else :
+			time_spawn_tree = randf_range(0.5,4)
+			spawn_tree()
+		
+		#--ROLL--#
+		if get_child_count() > 0:
+			for n in get_children():
+				n.position.y += TheGame.ROLL_SPEED * delta
+				if n.position.y >= 50:
+					n.queue_free()
 
 func spawn_tree():
 	var Tree_load = load(TREE)

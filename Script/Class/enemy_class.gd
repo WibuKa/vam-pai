@@ -11,9 +11,6 @@ var death = false
 var speed
 var time_hurt = 0.0
 #state
-var slow = false
-var slow_time = 0
-var slow_factor = 1
 
 @onready var gem_load = load("res://Object/Other/gem0.tscn")
 @onready var soul_load = load("res://Object/Other/soul.tscn")
@@ -23,12 +20,6 @@ var player:Player
 func _set_state():
 	hp = HP
 	speed = SPEED
-
-func _slow(percent:float,time):
-	slow = true
-	slow_time = time
-	slow_factor = (1.0 -(percent/100))
-	pass
 
 func _gem_drop():
 	var quantity = randi_range(coin_drop.x,coin_drop.y)
@@ -45,11 +36,16 @@ func _soul_drop():
 		get_node("/root/game/Drop/Souls").add_child(soul)
 		soul.position = self.position
 
-func _slow_down(delta):
-	if can_slow:
-		$Sprite.modulate.r = 0
-		slow_time -= delta
-		if slow_time <= 0:
-			slow = false
-			$Sprite.modulate.r = 1
-			slow_factor = 1
+func _take_damage(Damage):
+	if delay_spawn == false:
+		hp -= Damage
+		time_hurt = 0.1
+		if hp <= 0:
+			death = true
+
+func _spawn_dust():
+	var load_dust = load("res://Object/Graphic/Effect/dust.tscn")
+	var Dust = load_dust.instantiate()
+	Dust.position = position
+	get_node("/root/game").add_child(Dust)
+	pass

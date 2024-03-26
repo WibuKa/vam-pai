@@ -4,6 +4,7 @@ var fly_point:Vector2
 var start_pos:Vector2
 var delay_fly = false
 var push = false
+var camp_position = Vector2.ZERO
 
 @export var TIME_DELAY_SHOT = 2
 var time_delay_shot = 0
@@ -16,9 +17,12 @@ func _ready():
 	fly_point = get_node("/root/game/fly_point").get_child(randi_range(0,7)).position
 
 func _physics_process(delta):
-	if slow:
-		_slow_down(delta)
-	_move(delta)
+	if get_node("/root/game/SpawnEnemyManager").mushroom_event == false:
+		_delete()
+	
+	if move:
+		position = position.lerp(camp_position,speed*delta)
+	
 	_shooting(delta)
 	
 	if time_hurt > 0:
@@ -26,8 +30,6 @@ func _physics_process(delta):
 		$Sprite.modulate = Color(1.5, 1.5, 3)
 		if time_hurt <= 0:
 			$Sprite.modulate = Color(1, 1, 1)
-	
-	$AnimationPlayer.speed_scale = (speed/SPEED) * slow_factor
 	
 	#⏰⏰⏰
 	if time_push > 0: 
@@ -55,17 +57,6 @@ func _shooting(delta):
 		push = false
 	pass
 
-func _move(delta):
-	#position.y += (TheGame.ROLL_SPEED + speed) * delta * slow_factor
-	if move:
-		position = position.move_toward(fly_point, speed*delta)
-	if position.distance_to(fly_point) <= 10 and delay_fly == false:
-		delay_fly = true
-		await get_tree().create_timer(randf_range(0,0)).timeout
-		fly_point = get_node("/root/game/fly_point").get_child(randi_range(0,7)).position
-		start_pos = position
-		delay_fly = false
-
 func _take_damage(Damage):
 	hp -= Damage
 	time_hurt = 0.1
@@ -73,9 +64,12 @@ func _take_damage(Damage):
 		_death()
 
 func _death():
-	await get_tree().create_timer(0.1).timeout
-	queue_free()
+	_spawn_dust()
 	_gem_drop()
 	_soul_drop()
+	queue_free()
 	pass
 
+func _delete():
+	_spawn_dust()
+	queue_free()

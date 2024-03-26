@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4o0uwbl3adyp"]
+[gd_scene load_steps=11 format=3 uid="uid://b4o0uwbl3adyp"]
 
 [ext_resource type="PackedScene" uid="uid://cyjc5rxtgifn0" path="res://Object/Player/player.tscn" id="1_4l8op"]
 [ext_resource type="Script" path="res://Script/Core/maint.gd" id="1_jdhi0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Script/Core/Spawner/enemy_spawn_manager.gd" id="3_ot5s5"]
 [ext_resource type="Script" path="res://Script/Environment/wall/tree_wall.gd" id="6_vk4ct"]
 [ext_resource type="Script" path="res://Script/Environment/ground.gd" id="7_2unlj"]
+[ext_resource type="PackedScene" uid="uid://bl1un6ftnavu3" path="res://Object/Bullet/E_bullet0.tscn" id="8_00vvq"]
 [ext_resource type="PackedScene" uid="uid://cd40d4ugucgkk" path="res://Object/Environment/Wall/leaf.tscn" id="8_eg2gq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hojp"]
@@ -30,6 +31,7 @@ position = Vector2(46, -83)
 
 [node name="player" parent="." instance=ExtResource("1_4l8op")]
 unique_name_in_owner = true
+y_sort_enabled = false
 position = Vector2(0, -10)
 
 [node name="SpawnEnemyManager" type="Node" parent="."]
@@ -111,5 +113,8 @@ position = Vector2(27, -163)
 [node name="Gems" type="Node2D" parent="Drop"]
 
 [node name="Souls" type="Node2D" parent="Drop"]
+
+[node name="E_bullet" parent="." instance=ExtResource("8_00vvq")]
+position = Vector2(-24, -82)
 
 [connection signal="timeout" from="system/Timer_clear" to="." method="_clear"]

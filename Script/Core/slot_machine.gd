@@ -11,6 +11,7 @@ var number_items:Array = [0,0,0]
 
 func _ready():
 	visible = false
+	_spin()
 
 func _spin():
 	$slots.visible = false

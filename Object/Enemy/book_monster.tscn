@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://qcjluf6c2gts"]
+
+[ext_resource type="Script" path="res://Script/Enemy/book_monster.gd" id="1_i2c5s"]
+[ext_resource type="Texture2D" uid="uid://daur5v3gleo4a" path="res://Art/Shadow/shadow_0.png" id="2_q48so"]
+[ext_resource type="Texture2D" uid="uid://cxccwq8ra3083" path="res://Art/Actor/Enemy/book.png" id="4_vsdgn"]
+[ext_resource type="Script" path="res://Script/Guns/duck_foot.gd" id="5_2sqic"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/take_damage.gd" id="5_v387c"]
+
+[sub_resource type="Animation" id="Animation_21s43"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -26)]
+}
+
+[sub_resource type="Animation" id="Animation_8nn0k"]
+resource_name = "attack"
+length = 0.72
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.56, 0.64),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 7, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.32, 0.36, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -26), Vector2(0, -32), Vector2(0, -26)]
+}
+
+[sub_resource type="Animation" id="Animation_qoje1"]
+resource_name = "idle"
+length = 0.48
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rwxv"]
+_data = {
+"RESET": SubResource("Animation_21s43"),
+"attack": SubResource("Animation_8nn0k"),
+"idle": SubResource("Animation_qoje1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01rwt"]
+size = Vector2(16, 16)
+
+[node name="book_monster" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_i2c5s")
+SPEED = 2
+HP = 100
+
+[node name="Shadow0" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0980392)
+z_index = -1
+texture = ExtResource("2_q48so")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_0rwxv")
+}
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -26)
+texture = ExtResource("4_vsdgn")
+hframes = 12
+
+[node name="hit_box" type="Area2D" parent="." groups=["Enemy"]]
+position = Vector2(0, -20)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("5_v387c")
+
+[node name="Collision" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_01rwt")
+debug_color = Color(0.988235, 0, 0.32549, 0.278431)
+
+[node name="shot" type="Node2D" parent="." node_paths=PackedStringArray("main")]
+position = Vector2(-0.5, -21.5)
+script = ExtResource("5_2sqic")
+projectile = "res://Object/Bullet/E_bullet1.tscn"
+main = NodePath("..")

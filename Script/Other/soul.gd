@@ -20,6 +20,7 @@ func _process(delta):
 		position =  position.move_toward(player.position,2+a_)
 		position.x += direction
 	position.y += TheGame.ROLL_SPEED*delta
+
 func _pick_up():
 	TheGame.soul += 1
 	queue_free()

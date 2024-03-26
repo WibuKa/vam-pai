@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cldx5bicw8j5m"]
+
+[ext_resource type="Script" path="res://Script/Projectile/basic_E_bullet.gd" id="1_dojfq"]
+[ext_resource type="Texture2D" uid="uid://bror0fmpehu52" path="res://Art/Light/light_01.png" id="2_5fsi0"]
+[ext_resource type="Texture2D" uid="uid://c133tqms2314u" path="res://Art/Light/light_00.png" id="3_34rj7"]
+[ext_resource type="Texture2D" uid="uid://codney3rf5e41" path="res://Art/Bullet/Enemy_bullet0.png" id="4_41so5"]
+[ext_resource type="Script" path="res://Script/UtilityScripts/auto_animation.gd" id="5_416ys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnbmt"]
+size = Vector2(8, 8)
+
+[node name="E_bullet" type="Area2D" groups=["projectile"]]
+z_index = 2
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_dojfq")
+SPEED = 80
+DAMAGE = 10
+
+[node name="PointLight0" type="PointLight2D" parent="."]
+color = Color(1, 0.509804, 0.509804, 1)
+energy = 2.0
+texture = ExtResource("2_5fsi0")
+texture_scale = 0.5
+
+[node name="PointLight1" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+texture = ExtResource("3_34rj7")
+texture_scale = 0.2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+texture = ExtResource("4_41so5")
+hframes = 3
+script = ExtResource("5_416ys")
+TIME = 0.08
+destroy = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fnbmt")
+debug_color = Color(0.839216, 0.384314, 0, 0.0784314)

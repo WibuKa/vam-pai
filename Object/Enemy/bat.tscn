@@ -14,7 +14,7 @@ size = Vector2(12, 12)
 y_sort_enabled = true
 script = ExtResource("1_oq2io")
 coin_drop = Vector2(1, 1)
-SPEED = 60
+SPEED = 120
 HP = 10
 
 [node name="Shadow0" type="Sprite2D" parent="."]

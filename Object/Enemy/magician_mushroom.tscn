@@ -154,8 +154,8 @@ size = Vector2(14, 15.75)
 [node name="magicican_mushroom" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_kxsok")
-SPEED = 60
-HP = 60
+SPEED = 2
+HP = 120
 M_ATK = 25
 
 [node name="Shadow0" type="Sprite2D" parent="."]
@@ -199,7 +199,8 @@ debug_color = Color(0.988235, 0, 0.32549, 0.278431)
 [node name="shot" type="Node2D" parent="." node_paths=PackedStringArray("main")]
 position = Vector2(-1, 10.5)
 script = ExtResource("6_6wygs")
-quantily = 3
-TIME_DELAY = 0.03
+target_type = "Player"
+quantily = 5
+TIME_DELAY = 0.05
 projectile = "res://Object/Bullet/E_bullet0.tscn"
 main = NodePath("..")
